@@ -5,15 +5,17 @@
 
 .footer{
     width: 100%;
-    padding-block: 1.5rem;
-    position: relative;
-   
+    padding: 4rem 0 2rem;
+    background: var(--card-bg-color);
+    border-top: 1px solid rgba(99, 102, 241, 0.2);
+    margin-top: 6rem;
 }
 
 .footer_box{
-    width: 80%;
+    width: 90%;
+    max-width: 1200px;
     margin: 0 auto;
-    display:  grid;
+    display: grid;
     grid-template-columns: 1.3fr repeat(2, 1fr) 2fr;
     align-items: flex-start;
     justify-content: space-between;
@@ -37,9 +39,10 @@
 }
 
 .footer_social a:hover{
-    background-color:  var(--icons-color);
-    color:  var(--shadow-dark-color);
+    background: var(--gradient-primary);
+    color: white;
     box-shadow: var(--box-shadow);
+    transform: translateY(-2px);
 }
 
 .subscribe_box{
@@ -47,11 +50,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 2rem;
-    background-color:  var(--icons-color);
-    color: var(--shadow-dark-color);
-    border-radius: 5rem;
-    margin-top: 3rem;
+    padding: 1rem 1.5rem;
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: var(--border-radius);
+    margin-top: 2rem;
+    box-shadow: var(--box-shadow);
 }
 
 .subscribe_box input{
