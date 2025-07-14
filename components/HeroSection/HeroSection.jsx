@@ -17,13 +17,13 @@ const HeroSection = () => {
     <div className={Style.heroSection}>
       <div className={Style.heroSection_box}>
         <div className={Style.heroSection_box_left}>
-          <h1>{titleData} 🖼️</h1>
+          <h1 className="gradient-text">{titleData} 🚀</h1>
           <p>
-            Discover the most outstanding NTFs in all topics of life. Creative
-            your NTFs and sell them
+            Discover, collect, and trade extraordinary NFTs in the most advanced marketplace. 
+            Create your unique digital assets and join the future of digital ownership.
           </p>
           <Button
-            btnName="Start your search"
+            btnName="Explore NFTs"
             handleClick={() => router.push("/searchPage")}
           />
         </div>

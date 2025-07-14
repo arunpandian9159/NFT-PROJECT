@@ -12,11 +12,8 @@ import {
   Filter,
   NFTCard,
   Collection,
-  AudioLive,
   FollowerTab,
   Slider,
-  Brand,
-  Video,
   Loader,
 } from "../components/componentsindex";
 import { getTopCreators } from "../TopCreators/TopCreators";
@@ -56,11 +53,7 @@ const Home = () => {
       <HeroSection />
       <Service />
       <BigNFTSilder />
-      <Title
-        heading="Audio Collection"
-        paragraph="Discover the most outstanding NFTs in all topics of life."
-      />
-      <AudioLive />
+      
       {creators.length == 0 ? (
         <Loader />
       ) : (
@@ -82,8 +75,6 @@ const Home = () => {
       />
       <Category />
       <Subscribe />
-      <Brand />
-      <Video />
     </div>
   );
 };
