@@ -8,8 +8,6 @@ import axios from "axios";
 import {
   NFTMarketplaceAddress,
   NFTMarketplaceABI,
-  transferFundsAddress,
-  transferFundsABI,
   handleNetworkSwitch,
 } from "./constants";
 
@@ -112,8 +110,8 @@ export const NFTMarketplaceProvider = ({ children }) => {
           url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
           data: formData,
           headers: {
-            pinata_api_key: `129b22103c9fef2056a8`,
-            pinata_secret_api_key: `2826f144aa7a23ee135c08eab46f65b18a2802777855293f43ff1e34c298987e`,
+            pinata_api_key: process.env.NEXT_PUBLIC_PINATA_API_KEY,
+            pinata_secret_api_key: process.env.NEXT_PUBLIC_PINATA_SECRET_KEY,
             "Content-Type": "multipart/form-data",
           },
         });
@@ -143,8 +141,8 @@ export const NFTMarketplaceProvider = ({ children }) => {
         url: "https://api.pinata.cloud/pinning/pinJSONToIPFS",
         data: data,
         headers: {
-          pinata_api_key: `129b22103c9fef2056a8`,
-          pinata_secret_api_key: `2826f144aa7a23ee135c08eab46f65b18a2802777855293f43ff1e34c298987e`,
+          pinata_api_key: process.env.NEXT_PUBLIC_PINATA_API_KEY,
+          pinata_secret_api_key: process.env.NEXT_PUBLIC_PINATA_SECRET_KEY,
           "Content-Type": "application/json",
         },
       });
