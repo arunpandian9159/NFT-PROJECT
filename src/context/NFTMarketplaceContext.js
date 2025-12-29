@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import Web3Modal from "web3modal";
 import { ethers } from "ethers";
 import { useRouter } from "next/router";
 import axios from "axios";
 
-//INTERNAL  IMPORT
+// Internal Import
 import {
   NFTMarketplaceAddress,
   NFTMarketplaceABI,
   handleNetworkSwitch,
 } from "./constants";
 
-//---FETCHING SMART CONTRACT
+// Fetching Smart Contract - ethers v6 compatible
 const fetchContract = (signerOrProvider) =>
   new ethers.Contract(
     NFTMarketplaceAddress,
@@ -19,14 +19,14 @@ const fetchContract = (signerOrProvider) =>
     signerOrProvider
   );
 
-//---CONNECTING WITH SMART CONTRACT
-
+// Connecting With Smart Contract - ethers v6 compatible
 const connectingWithSmartContract = async () => {
   try {
     const web3Modal = new Web3Modal();
     const connection = await web3Modal.connect();
-    const provider = new ethers.providers.Web3Provider(connection);
-    const signer = provider.getSigner();
+    // ethers v6: BrowserProvider instead of Web3Provider
+    const provider = new ethers.BrowserProvider(connection);
+    const signer = await provider.getSigner();
 
     const contract = fetchContract(signer);
     return contract;
@@ -35,25 +35,24 @@ const connectingWithSmartContract = async () => {
   }
 };
 
-export const NFTMarketplaceContext = React.createContext();
+export const NFTMarketplaceContext = createContext();
 
 export const NFTMarketplaceProvider = ({ children }) => {
   const titleData = "Discover, collect, and sell NFTs";
 
-  //------USESTAT
+  // State
   const [error, setError] = useState("");
   const [openError, setOpenError] = useState(false);
   const [currentAccount, setCurrentAccount] = useState("");
   const [accountBalance, setAccountBalance] = useState("");
   const router = useRouter();
 
-  //---CHECK IF WALLET IS CONNECTD
-
+  // Check If Wallet Is Connected
   const checkIfWalletConnected = async () => {
     try {
       if (!window.ethereum)
         return setOpenError(true), setError("Install MetaMask");
-      const network = await handleNetworkSwitch();
+      await handleNetworkSwitch();
 
       const accounts = await window.ethereum.request({
         method: "eth_accounts",
@@ -61,29 +60,27 @@ export const NFTMarketplaceProvider = ({ children }) => {
 
       if (accounts.length) {
         setCurrentAccount(accounts[0]);
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        // ethers v6: BrowserProvider instead of Web3Provider
+        const provider = new ethers.BrowserProvider(window.ethereum);
         const getBalance = await provider.getBalance(accounts[0]);
-        const bal = ethers.utils.formatEther(getBalance);
+        // ethers v6: formatEther is now a standalone function
+        const bal = ethers.formatEther(getBalance);
         setAccountBalance(bal);
         return accounts[0];
       } else {
-        // setError("No Account Found");
-        // setOpenError(true);
         console.log("No account");
       }
     } catch (error) {
-      // setError("Something wrong while connecting to wallet");
-      // setOpenError(true);
       console.log("not connected");
     }
   };
 
-  //---CONNET WALLET FUNCTION
+  // Connect Wallet Function
   const connectWallet = async () => {
     try {
       if (!window.ethereum)
         return setOpenError(true), setError("Install MetaMask");
-      const network = await handleNetworkSwitch();
+      await handleNetworkSwitch();
       const accounts = await window.ethereum.request({
         method: "eth_requestAccounts",
       });
@@ -98,7 +95,7 @@ export const NFTMarketplaceProvider = ({ children }) => {
     }
   };
 
-  //---UPLOAD TO IPFS FUNCTION
+  // Upload To Pinata IPFS Function
   const uploadToPinata = async (file) => {
     if (file) {
       try {
@@ -128,7 +125,7 @@ export const NFTMarketplaceProvider = ({ children }) => {
     setOpenError(true);
   };
 
-  //---CREATENFT FUNCTION
+  // Create NFT Function
   const createNFT = async (name, price, image, description, router) => {
     if (!name || !description || !price || !image)
       return setError("Data Is Missing"), setOpenError(true);
@@ -158,10 +155,11 @@ export const NFTMarketplaceProvider = ({ children }) => {
     }
   };
 
-  //--- createSale FUNCTION
+  // Create Sale Function - ethers v6 compatible
   const createSale = async (url, formInputPrice, isReselling, id) => {
     try {
-      const price = ethers.utils.parseUnits(formInputPrice, "ether");
+      // ethers v6: parseUnits is now a standalone function
+      const price = ethers.parseUnits(formInputPrice, "ether");
 
       const contract = await connectingWithSmartContract();
 
@@ -184,15 +182,15 @@ export const NFTMarketplaceProvider = ({ children }) => {
     }
   };
 
-  //--FETCHNFTS FUNCTION
-
+  // Fetch NFTs Function - ethers v6 compatible
   const fetchNFTs = async () => {
     try {
       const address = await checkIfWalletConnected();
       if (address) {
         const web3Modal = new Web3Modal();
         const connection = await web3Modal.connect();
-        const provider = new ethers.providers.Web3Provider(connection);
+        // ethers v6: BrowserProvider instead of Web3Provider
+        const provider = new ethers.BrowserProvider(connection);
 
         const contract = fetchContract(provider);
 
@@ -208,14 +206,16 @@ export const NFTMarketplaceProvider = ({ children }) => {
               const {
                 data: { image, name, description },
               } = await axios.get(tokenURI, {});
-              const price = ethers.utils.formatUnits(
+              // ethers v6: formatUnits is now a standalone function
+              const price = ethers.formatUnits(
                 unformattedPrice.toString(),
                 "ether"
               );
 
               return {
                 price,
-                tokenId: tokenId.toNumber(),
+                // ethers v6: BigInt uses Number() instead of .toNumber()
+                tokenId: Number(tokenId),
                 seller,
                 owner,
                 image,
@@ -229,8 +229,6 @@ export const NFTMarketplaceProvider = ({ children }) => {
         console.log("NFT", items);
         return items;
       }
-
-      // }
     } catch (error) {
       setError("Error while fetching NFTS");
       setOpenError(true);
@@ -238,7 +236,7 @@ export const NFTMarketplaceProvider = ({ children }) => {
     }
   };
 
-  //--FETCHING MY NFT OR LISTED NFTs
+  // Fetching My NFT Or Listed NFTs - ethers v6 compatible
   const fetchMyNFTsOrListedNFTs = async (type) => {
     try {
       const address = await checkIfWalletConnected();
@@ -246,7 +244,7 @@ export const NFTMarketplaceProvider = ({ children }) => {
         const contract = await connectingWithSmartContract();
 
         const data =
-          type == "fetchItemsListed"
+          type === "fetchItemsListed"
             ? await contract.fetchItemsListed()
             : await contract.fetchMyNFTs();
 
@@ -257,14 +255,16 @@ export const NFTMarketplaceProvider = ({ children }) => {
               const {
                 data: { image, name, description },
               } = await axios.get(tokenURI);
-              const price = ethers.utils.formatUnits(
+              // ethers v6: formatUnits is now a standalone function
+              const price = ethers.formatUnits(
                 unformattedPrice.toString(),
                 "ether"
               );
 
               return {
                 price,
-                tokenId: tokenId.toNumber(),
+                // ethers v6: BigInt uses Number() instead of .toNumber()
+                tokenId: Number(tokenId),
                 seller,
                 owner,
                 image,
@@ -284,13 +284,14 @@ export const NFTMarketplaceProvider = ({ children }) => {
     }
   };
 
-  //---BUY NFTs FUNCTION
+  // Buy NFT Function - ethers v6 compatible
   const buyNFT = async (nft) => {
     try {
       const address = await checkIfWalletConnected();
       if (address) {
         const contract = await connectingWithSmartContract();
-        const price = ethers.utils.parseUnits(nft.price.toString(), "ether");
+        // ethers v6: parseUnits is now a standalone function
+        const price = ethers.parseUnits(nft.price.toString(), "ether");
 
         const transaction = await contract.createMarketSale(nft.tokenId, {
           value: price,

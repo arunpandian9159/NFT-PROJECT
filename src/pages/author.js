@@ -1,21 +1,21 @@
 import React, { useState, useEffect, useContext } from "react";
 
-//INTERNAL IMPORT
-import Style from "../styles/author.module.css";
-import { Banner, NFTCardTwo } from "../collectionPage/collectionIndex";
-import { Brand, Title } from "../components/componentsindex";
-import FollowerTabCard from "../components/FollowerTab/FollowerTabCard/FollowerTabCard";
-import images from "../img";
+// Internal Import
+import Style from "@/styles/author.module.css";
+import { Banner, NFTCardTwo } from "@/components/collection/collectionIndex";
+import { Brand, Title } from "@/components";
+import FollowerTabCard from "@/components/nft/FollowerTab/FollowerTabCard/FollowerTabCard";
+import images from "@/img";
 import {
   AuthorProfileCard,
   AuthorTaps,
   AuthorNFTCardBox,
-} from "../authorPage/componentIndex";
+} from "@/components/author/componentIndex";
 
-//IMPORT SMART CONTRACT DATA
-import { NFTMarketplaceContext } from "../Context/NFTMarketplaceContext";
+// Smart Contract Import
+import { NFTMarketplaceContext } from "@/context/NFTMarketplaceContext";
 
-const author = () => {
+const Author = () => {
   const followerArray = [
     {
       background: images.creatorbackground1,
@@ -55,7 +55,6 @@ const author = () => {
   const [follower, setFollower] = useState(false);
   const [following, setFollowing] = useState(false);
 
-  //IMPORT SMART CONTRACT DATA
   const { fetchMyNFTsOrListedNFTs, currentAccount } = useContext(
     NFTMarketplaceContext
   );
@@ -66,15 +65,12 @@ const author = () => {
   useEffect(() => {
     fetchMyNFTsOrListedNFTs("fetchItemsListed").then((items) => {
       setNfts(items);
-
-      console.log(nfts);
     });
   }, []);
 
   useEffect(() => {
     fetchMyNFTsOrListedNFTs("fetchMyNFTs").then((items) => {
       setMyNFTs(items);
-      console.log(myNFTs);
     });
   }, []);
 
@@ -102,12 +98,11 @@ const author = () => {
       />
       <Title
         heading="Popular Creators"
-        paragraph="Click on music icon and enjoy NTF music or audio
-"
+        paragraph="Click on music icon and enjoy NTF music or audio"
       />
       <div className={Style.author_box}>
         {followerArray.map((el, i) => (
-          <FollowerTabCard i={i} el={el} />
+          <FollowerTabCard key={i} i={i} el={el} />
         ))}
       </div>
 
@@ -116,4 +111,4 @@ const author = () => {
   );
 };
 
-export default author;
+export default Author;
