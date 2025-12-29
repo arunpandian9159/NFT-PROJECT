@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
-//INTERNALIMPORT
+//INTERNAL IMPORT
 import Style from "./loginAndSignUp.module.css";
-import images from "../img";
-import { Button } from "../components/componentsindex.js";
+import images from "../../hooks";
+import { Button } from "../common/Button/Button";
 
 const loginAndSignUp = () => {
   const [activeBtn, setActiveBtn] = useState(1);

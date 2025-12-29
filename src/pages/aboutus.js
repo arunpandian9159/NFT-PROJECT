@@ -4,7 +4,7 @@ import Image from "next/image";
 // Internal Import
 import Style from "@/styles/aboutus.module.css";
 import { Brand } from "@/components";
-import images from "@/img";
+import images from "@/hooks";
 
 const AboutUs = () => {
   const founderArray = [
