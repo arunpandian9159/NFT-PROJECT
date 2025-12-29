@@ -3,18 +3,18 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import Image from "next/image";
 
-//INTERNAL IMPORT
-import Style from "../styles/reSellToken.module.css";
-import formStyle from "../AccountPage/Form/Form.module.css";
-import { Button } from "../components/componentsindex";
+// Internal Import
+import Style from "@/styles/reSellToken.module.css";
+import formStyle from "@/components/account/Form/Form.module.css";
+import { Button } from "@/components";
 
-//IMPORT SMART CONTRACT
-import { NFTMarketplaceContext } from "../Context/NFTMarketplaceContext";
+// Smart Contract Import
+import { NFTMarketplaceContext } from "@/context/NFTMarketplaceContext";
 
-const reSellToken = () => {
+const ReSellToken = () => {
   const { createSale } = useContext(NFTMarketplaceContext);
   const [image, setImage] = useState("");
-  const [price, setPrice] = useState('"');
+  const [price, setPrice] = useState("");
   const router = useRouter();
   const { id, tokenURI } = router.query;
 
@@ -38,6 +38,7 @@ const reSellToken = () => {
       console.log("Error while resell", error);
     }
   };
+
   return (
     <div className={Style.reSellToken}>
       <div className={Style.reSellToken_box}>
@@ -67,4 +68,4 @@ const reSellToken = () => {
   );
 };
 
-export default reSellToken;
+export default ReSellToken;

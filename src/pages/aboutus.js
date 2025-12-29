@@ -1,12 +1,12 @@
 import React from "react";
 import Image from "next/image";
 
-//INTERNAL IMPORT
-import Style from "../styles/aboutus.module.css";
-import { Brand } from "../components/componentsindex";
-import images from "../img";
+// Internal Import
+import Style from "@/styles/aboutus.module.css";
+import { Brand } from "@/components";
+import images from "@/img";
 
-const aboutus = () => {
+const AboutUs = () => {
   const founderArray = [
     {
       name: "Arunpandian",
@@ -23,7 +23,8 @@ const aboutus = () => {
       position: "Co-founder",
       images: images.founder3,
     },
-  ]; 
+  ];
+
   return (
     <div className={Style.aboutus}>
       <div className={Style.aboutus_box}>
@@ -31,27 +32,27 @@ const aboutus = () => {
           <div className={Style.aboutus_box_hero_left}>
             <h1>👋 About Us.</h1>
             <p>
-              We’re impartial and independent, and every day we create
+              We're impartial and independent, and every day we create
               distinctive, world-class programmes and content which inform,
               educate and entertain millions of people in the around the world.
             </p>
           </div>
           <div className={Style.aboutus_box_hero_right}>
-            <Image src={images.hero2} />
+            <Image src={images.hero2} alt="About us" />
           </div>
         </div>
 
         <div className={Style.aboutus_box_title}>
           <h2>⛱ Founder</h2>
           <p>
-            We’re impartial and independent, and every day we create
+            We're impartial and independent, and every day we create
             distinctive, world-class programmes and content
           </p>
         </div>
         <div className={Style.aboutus_box_founder}>
           <div className={Style.aboutus_box_founder_box}>
             {founderArray.map((el, i) => (
-              <div className={Style.aboutus_box_founder_box_img}>
+              <div key={i} className={Style.aboutus_box_founder_box_img}>
                 <Image
                   src={el.images}
                   alt={el.name}
@@ -71,4 +72,4 @@ const aboutus = () => {
   );
 };
 
-export default aboutus;
+export default AboutUs;

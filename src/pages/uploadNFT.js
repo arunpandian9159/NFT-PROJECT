@@ -1,16 +1,17 @@
 import React, { useEffect, useState, useContext } from "react";
 
-//INTERNAL IMPORT
-import Style from "../styles/upload-nft.module.css";
-import { UploadNFT } from "../UploadNFT/uploadNFTIndex";
+// Internal Import
+import Style from "@/styles/upload-nft.module.css";
+import { UploadNFT } from "@/components/upload/uploadNFTIndex";
 
-//SMART CONTRACT IMPORT
-import { NFTMarketplaceContext } from "../Context/NFTMarketplaceContext";
+// Smart Contract Import
+import { NFTMarketplaceContext } from "@/context/NFTMarketplaceContext";
 
-const uploadNFT = () => {
+const UploadNFTPage = () => {
   const { uploadToIPFS, createNFT, uploadToPinata } = useContext(
     NFTMarketplaceContext
   );
+
   return (
     <div className={Style.uploadNFT}>
       <div className={Style.uploadNFT_box}>
@@ -24,9 +25,7 @@ const uploadNFT = () => {
 
         <div className={Style.uploadNFT_box_title}>
           <h2>Image,Audio</h2>
-          <p>
-            File types supported: JPG, PNG, GIF, MP3, 
-          </p>
+          <p>File types supported: JPG, PNG, GIF, MP3</p>
         </div>
 
         <div className={Style.uploadNFT_box_form}>
@@ -41,4 +40,4 @@ const uploadNFT = () => {
   );
 };
 
-export default uploadNFT;
+export default UploadNFTPage;

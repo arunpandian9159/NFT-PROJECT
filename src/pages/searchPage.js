@@ -1,18 +1,16 @@
 import React, { useEffect, useState, useContext } from "react";
 
-//INTRNAL IMPORT
-import Style from "../styles/searchPage.module.css";
-import { Slider, Brand, Loader } from "../components/componentsindex";
-import { SearchBar } from "../SearchPage/searchBarIndex";
-import { Filter } from "../components/componentsindex";
+// Internal Import
+import Style from "@/styles/searchPage.module.css";
+import { Slider, Brand, Loader, Filter } from "@/components";
+import { SearchBar } from "@/components/search/searchBarIndex";
+import { NFTCardTwo, Banner } from "@/components/collection/collectionIndex";
+import images from "@/img";
 
-import { NFTCardTwo, Banner } from "../collectionPage/collectionIndex";
-import images from "../img";
+// Smart Contract Import
+import { NFTMarketplaceContext } from "@/context/NFTMarketplaceContext";
 
-//SMART CONTRACT IMPORT
-import { NFTMarketplaceContext } from "../Context/NFTMarketplaceContext";
-
-const searchPage = () => {
+const SearchPage = () => {
   const { fetchNFTs, setError, currentAccount } = useContext(
     NFTMarketplaceContext
   );
@@ -25,7 +23,6 @@ const searchPage = () => {
         fetchNFTs().then((items) => {
           setNfts(items?.reverse());
           setNftsCopy(items);
-          console.log(nfts);
         });
       }
     } catch (error) {
@@ -51,16 +48,6 @@ const searchPage = () => {
     }
   };
 
-  // const collectionArray = [
-  //   images.nft_image_1,
-  //   images.nft_image_2,
-  //   images.nft_image_3,
-  //   images.nft_image_1,
-  //   images.nft_image_2,
-  //   images.nft_image_3,
-  //   images.nft_image_1,
-  //   images.nft_image_2,
-  // ];
   return (
     <div className={Style.searchPage}>
       <Banner bannerImage={images.creatorbackground2} />
@@ -69,11 +56,11 @@ const searchPage = () => {
         onClearSearch={onClearSearch}
       />
       <Filter />
-      {nfts?.length == 0 ? <Loader /> : <NFTCardTwo NFTData={nfts} />}
+      {nfts?.length === 0 ? <Loader /> : <NFTCardTwo NFTData={nfts} />}
       <Slider />
       <Brand />
     </div>
   );
 };
 
-export default searchPage;
+export default SearchPage;
