@@ -3,7 +3,7 @@ import Image from "next/image";
 
 //INTERNAL IMPORT
 import Style from "./Brand.module.css";
-import images from "../../../public/img";
+import images from "@/images";
 
 const Brand = () => {
   return (

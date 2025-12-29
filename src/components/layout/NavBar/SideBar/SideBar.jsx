@@ -16,8 +16,8 @@ import { DiJqueryLogo } from "react-icons/di";
 
 //INTERNAL IMPORT
 import Style from "./SideBar.module.css";
-import images from "../../../public/img";
-import Button from "../../Button/Button";
+import images from "@/images";
+import Button from "../../../common/Button/Button";
 import { Router } from "next/router";
 
 const SideBar = ({ setOpenSideMenu, currentAccount, connectWallet }) => {

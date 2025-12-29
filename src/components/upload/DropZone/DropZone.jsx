@@ -4,7 +4,7 @@ import Image from "next/image";
 
 //INTRNAL IMPORT
 import Style from "./DropZone.module.css";
-import images from "../../img";
+import images from "@/images";
 
 const DropZone = ({
   title,

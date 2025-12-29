@@ -3,7 +3,7 @@ import Image from "next/image";
 
 //INTERNAL IMPORT
 import Style from "./Error.module.css";
-import images from "../../../public/img";
+import images from "@/images";
 
 //SMAFRT CONTRCAT IMPORT CONTEXT
 import { NFTMarketplaceContext } from "../../../context/NFTMarketplaceContext";

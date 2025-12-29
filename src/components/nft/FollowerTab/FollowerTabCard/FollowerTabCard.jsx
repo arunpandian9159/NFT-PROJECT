@@ -5,7 +5,7 @@ import { TiTick } from "react-icons/ti";
 
 //INTERNAL IMPORT
 import Style from "./FollowerTabCard.module.css";
-import images from "../../../public/img";
+import images from "@/images";
 const FollowerTabCard = ({ i, el }) => {
   const [following, setFollowing] = useState(false);
 

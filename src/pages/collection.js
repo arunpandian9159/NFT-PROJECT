@@ -2,7 +2,7 @@ import React from "react";
 
 // Internal Import
 import Style from "@/styles/collection.module.css";
-import images from "public/img";
+import images from "@/images";
 import {
   Banner,
   CollectionProfile,

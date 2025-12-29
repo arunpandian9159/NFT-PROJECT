@@ -6,7 +6,7 @@ import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
 
 //INTERNAL IMPORT
 import Style from "./NFTDetailsImg.module.css";
-import images from "../../img";
+import images from "@/images";
 
 const NFTDetailsImg = ({ nft }) => {
   const [description, setDescription] = useState(true);
