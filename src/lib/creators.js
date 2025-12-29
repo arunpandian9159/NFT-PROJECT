@@ -1,3 +1,4 @@
+// Utility function to calculate top creators from NFT data
 export const getTopCreators = (creators) => {
   const finalCreators = [];
 
