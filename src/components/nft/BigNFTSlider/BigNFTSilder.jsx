@@ -7,7 +7,7 @@ import { TbArrowBigLeftLines, TbArrowBigRightLine } from "react-icons/tb";
 //INTERNAL IMPORT
 import Style from "./BigNFTSilder.module.css";
 import images from "@/images";
-import Button from "../Button/Button";
+import Button from "../../common/Button/Button";
 
 const BigNFTSilder = () => {
   const [idNumber, setIdNumber] = useState(0);

@@ -4,8 +4,8 @@ import { useRouter } from "next/router";
 
 //INTERNAL IMPORT
 import Style from "./HeroSection.module.css";
-import { Button } from "../../common/Button/Button";
-import images from "../../hooks";
+import Button from "../../common/Button/Button";
+import images from "@/images";
 
 //SMART CONTRACT IMPORT
 import { NFTMarketplaceContext } from "../../../context/NFTMarketplaceContext";

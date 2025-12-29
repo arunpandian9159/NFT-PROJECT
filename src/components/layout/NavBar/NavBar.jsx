@@ -11,8 +11,8 @@ import { useRouter } from "next/router";
 //INTERNAL IMPORT
 import Style from "./NavBar.module.css";
 import { Discover, HelpCenter, Notification, Profile, SideBar } from "./index";
-import { Button } from "../../common/Button/Button";
-import { Error } from "../../common/Error/Error";
+import Button from "../../common/Button/Button";
+import Error from "../../common/Error/Error";
 import images from "@/images";
 
 //IMPORT FROM SMART CONTRACT

@@ -4,8 +4,6 @@ import Image from "next/image";
 
 //INTERNAL IMPORT
 import Style from "./SliderCard.module.css";
-import images from "@/images";
-import LikeProfile from "../../LikeProfile/LikeProfile";
 
 const SliderCard = ({ el, i }) => {
   return (

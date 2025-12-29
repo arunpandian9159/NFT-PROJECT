@@ -2,8 +2,8 @@ import React from "react";
 import { TiTick } from "react-icons/ti";
 
 //INTERNAL IMPORT
-import Style from "../Subscription/Subscription.module.css";
-import { Button } from "../components/componentsindex.js";
+import Style from "./Subscription.module.css";
+import Button from "../common/Button/Button";
 
 const Subscription = ({ el, i }) => {
   return (

@@ -23,11 +23,11 @@ import { BiTransferAlt, BiDollar } from "react-icons/bi";
 //INTERNAL IMPORT
 import Style from "./NFTDescription.module.css";
 import images from "@/images";
-import { Button } from "../../components/componentsindex.js";
+import Button from "../../common/Button/Button";
 import { NFTTabs } from "../NFTDetailsIndex";
 
 //IMPORT SMART CONTRACT
-import { NFTMarketplaceContext } from "../../Context/NFTMarketplaceContext";
+import { NFTMarketplaceContext } from "@/context/NFTMarketplaceContext";
 
 const NFTDescription = ({ nft }) => {
   const [social, setSocial] = useState(false);
