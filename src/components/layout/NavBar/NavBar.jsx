@@ -11,11 +11,12 @@ import { useRouter } from "next/router";
 //INTERNAL IMPORT
 import Style from "./NavBar.module.css";
 import { Discover, HelpCenter, Notification, Profile, SideBar } from "./index";
-import { Button, Error } from "../componentsindex";
-import images from "../../img";
+import { Button } from "../../common/Button/Button";
+import { Error } from "../../common/Error/Error";
+import images from "../../../public/img";
 
 //IMPORT FROM SMART CONTRACT
-import { NFTMarketplaceContext } from "../../Context/NFTMarketplaceContext";
+import { NFTMarketplaceContext } from "../../../context/NFTMarketplaceContext";
 
 const NavBar = () => {
   //----USESTATE COMPONNTS

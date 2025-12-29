@@ -5,7 +5,7 @@ import Style from "@/styles/author.module.css";
 import { Banner, NFTCardTwo } from "@/components/collection/collectionIndex";
 import { Brand, Title } from "@/components";
 import FollowerTabCard from "@/components/nft/FollowerTab/FollowerTabCard/FollowerTabCard";
-import images from "@/hooks";
+import images from "public/img";
 import {
   AuthorProfileCard,
   AuthorTaps,

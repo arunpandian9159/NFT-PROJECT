@@ -3,7 +3,7 @@ import Image from "next/image";
 
 // Internal Import
 import Style from "@/styles/connectWallet.module.css";
-import images from "@/hooks";
+import images from "public/img";
 
 // Smart Contract Import
 import { NFTMarketplaceContext } from "@/context/NFTMarketplaceContext";

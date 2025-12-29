@@ -3,7 +3,7 @@ import Image from "next/image";
 
 //INTERNAL IMPORT
 import Style from "./loginAndSignUp.module.css";
-import images from "../../hooks";
+import images from "../../../public/img";
 import { Button } from "../common/Button/Button";
 
 const loginAndSignUp = () => {

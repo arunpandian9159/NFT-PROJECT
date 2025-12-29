@@ -5,7 +5,7 @@ import Style from "@/styles/searchPage.module.css";
 import { Slider, Brand, Loader, Filter } from "@/components";
 import { SearchBar } from "@/components/search/searchBarIndex";
 import { NFTCardTwo, Banner } from "@/components/collection/collectionIndex";
-import images from "@/hooks";
+import images from "public/img";
 
 // Smart Contract Import
 import { NFTMarketplaceContext } from "@/context/NFTMarketplaceContext";

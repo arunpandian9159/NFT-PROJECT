@@ -4,11 +4,11 @@ import { useRouter } from "next/router";
 
 //INTERNAL IMPORT
 import Style from "./HeroSection.module.css";
-import { Button } from "../componentsindex";
-import images from "../../img";
+import { Button } from "../../common/Button/Button";
+import images from "../../hooks";
 
 //SMART CONTRACT IMPORT
-import { NFTMarketplaceContext } from "../../Context/NFTMarketplaceContext";
+import { NFTMarketplaceContext } from "../../../context/NFTMarketplaceContext";
 
 const HeroSection = () => {
   const { titleData } = useContext(NFTMarketplaceContext);
@@ -19,8 +19,9 @@ const HeroSection = () => {
         <div className={Style.heroSection_box_left}>
           <h1 className="gradient-text">{titleData} 🚀</h1>
           <p>
-            Discover, collect, and trade extraordinary NFTs in the most advanced marketplace. 
-            Create your unique digital assets and join the future of digital ownership.
+            Discover, collect, and trade extraordinary NFTs in the most advanced
+            marketplace. Create your unique digital assets and join the future
+            of digital ownership.
           </p>
           <Button
             btnName="Explore NFTs"

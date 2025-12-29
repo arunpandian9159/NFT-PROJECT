@@ -3,7 +3,7 @@ import Image from "next/image";
 
 //INTERNAL IMPORT
 import Style from "./Service.module.css";
-import images from "../../img";
+import images from "../../../public/img";
 const Service = () => {
   return (
     <div className={Style.service}>
@@ -20,7 +20,8 @@ const Service = () => {
           </p>
           <h3>Filter & Discover</h3>
           <p>
-            Browse through thousands of unique NFTs using advanced filters and discover your next digital treasure.
+            Browse through thousands of unique NFTs using advanced filters and
+            discover your next digital treasure.
           </p>
         </div>
         <div className={Style.service_box_item}>
@@ -35,7 +36,8 @@ const Service = () => {
           </p>
           <h3>Connect Wallet</h3>
           <p>
-            Securely connect your crypto wallet to start buying, selling, and trading NFTs on our platform.
+            Securely connect your crypto wallet to start buying, selling, and
+            trading NFTs on our platform.
           </p>
         </div>
         <div className={Style.service_box_item}>
@@ -50,7 +52,8 @@ const Service = () => {
           </p>
           <h3>Create NFTs</h3>
           <p>
-            Mint your own unique digital assets and showcase your creativity to the world.
+            Mint your own unique digital assets and showcase your creativity to
+            the world.
           </p>
         </div>
         <div className={Style.service_box_item}>
@@ -65,7 +68,8 @@ const Service = () => {
           </p>
           <h3>Start Trading</h3>
           <p>
-            Buy, sell, and trade NFTs with confidence in our secure marketplace ecosystem.
+            Buy, sell, and trade NFTs with confidence in our secure marketplace
+            ecosystem.
           </p>
         </div>
       </div>

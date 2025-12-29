@@ -3,10 +3,10 @@ import Image from "next/image";
 
 //INTERNAL IMPORT
 import Style from "./Error.module.css";
-import images from "../../img";
+import images from "../../../public/img";
 
 //SMAFRT CONTRCAT IMPORT CONTEXT
-import { NFTMarketplaceContext } from "../../Context/NFTMarketplaceContext";
+import { NFTMarketplaceContext } from "../../../context/NFTMarketplaceContext";
 
 const Error = () => {
   const { error, setOpenError } = useContext(NFTMarketplaceContext);

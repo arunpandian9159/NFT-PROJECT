@@ -3,7 +3,7 @@ import Image from "next/image";
 
 //INTERNAL IMPORT
 import Style from "./Loader.module.css";
-import images from "../../img";
+import images from "../../../img";
 
 const Loader = () => {
   return (
@@ -16,7 +16,7 @@ const Loader = () => {
             width={200}
             height={200}
             className={Style.Loader_box_img_img}
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: "cover" }}
           />
         </div>
       </div>

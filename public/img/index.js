@@ -1,121 +1,66 @@
-import collection from "./collection.png";
-import creatorbackground1 from "./creatorbackground-1.jpeg";
-import creatorbackground2 from "./creatorbackground-2.jpeg";
-import creatorbackground3 from "./creatorbackground-3.jpeg";
-import creatorbackground4 from "./creatorbackground-4.jpg";
-import creatorbackground5 from "./creatorbackground-5.jpg";
-import creatorbackground6 from "./creatorbackground-6.jpg";
-import creatorbackground7 from "./creatorbackground-7.jpg";
-import creatorbackground8 from "./creatorbackground-8.jpg";
-import creatorbackground9 from "./creatorbackground-9.jpg";
-import creatorbackground10 from "./creatorbackground-10.jpg";
-import creatorbackground11 from "./creatorbackground-11.jpg";
-import user1 from "./user-1.png";
-import user2 from "./user-2.png";
-import user3 from "./user-3.png";
-import user4 from "./user-4.png";
-import user5 from "./user-5.png";
-import user6 from "./user-6.png";
-import user7 from "./user-7.png";
-import user8 from "./user-8.png";
-import user9 from "./user-9.png";
-import user10 from "./user-10.png";
-import service1 from "./service-1.png";
-import service2 from "./service-2.png";
-import service3 from "./service-3.png";
-import service4 from "./service-4.png";
-import logoLight from "./logo-light.svg";
-import logo from "./logo.svg";
-import facebook from "./facebook.svg";
-import twitter from "./twitter.svg";
-import telegram from "./telegram.svg";
-import youtube from "./youtube.svg";
-import vimeo from "./vimeo.svg";
-import vector from "./VectorHIW.svg";
-import zgcmq from "./zgcmq.svg";
-import hero from "./hero.png";
-import nft_1 from "./nft_1.png";
-import getAble from "./getable.png";
-import nft_image_1 from "./nft-image-1.png";
-import nft_image_2 from "./nft-image-2.png";
-import nft_image_3 from "./nft-image-3.png";
-import musiceWave from "./musicwave.png";
-import update from "./update.png";
-import earn from "./eran.png";
-import NFTVideo from "./nftvideo.png";
-import hero2 from "./hero2.png";
-import upload from "./upload.png";
-import provider1 from "./provider-1.png";
-import provider2 from "./provider-2.png";
-import provider3 from "./provider-3.png";
-import provider4 from "./provider-4.png";
-import founder1 from "./founder1.jpg";
-import founder2 from "./founder2.jpg";
-import founder3 from "./founder3.jpg";
-import founder4 from "./founder4.jpg";
-import loader from "./loadergif.gif";
-import errorgif from "./error.gif";
-import transfer from "./transfer.gif";
-import transferEther from "./ethereTransfer.gif";
+// Image paths from public/img folder
+// In Next.js, images in public folder are accessed via path strings
 
-export default {
-  hero2,
-  founder1,
-  founder2,
-  founder3,
-  founder4,
-  provider1,
-  provider2,
-  provider3,
-  provider4,
-  upload,
-  NFTVideo,
-  earn,
-  collection,
-  update,
-  musiceWave,
-  nft_image_1,
-  nft_image_2,
-  nft_image_3,
-  getAble,
-  nft_1,
-  hero,
-  creatorbackground1,
-  creatorbackground2,
-  creatorbackground3,
-  creatorbackground4,
-  creatorbackground5,
-  creatorbackground6,
-  creatorbackground7,
-  creatorbackground8,
-  creatorbackground9,
-  creatorbackground10,
-  creatorbackground11,
-  user1,
-  user2,
-  user3,
-  user4,
-  user5,
-  user6,
-  user7,
-  user8,
-  user9,
-  user10,
-  service1,
-  service2,
-  service3,
-  service4,
-  logo,
-  logoLight,
-  facebook,
-  telegram,
-  twitter,
-  vector,
-  vimeo,
-  youtube,
-  zgcmq,
-  loader,
-  errorgif,
-  transfer,
-  transferEther,
+const images = {
+  collection: "/img/collection.png",
+  creatorbackground1: "/img/creatorbackground-1.jpeg",
+  creatorbackground2: "/img/creatorbackground-2.jpeg",
+  creatorbackground3: "/img/creatorbackground-3.jpeg",
+  creatorbackground4: "/img/creatorbackground-4.jpg",
+  creatorbackground5: "/img/creatorbackground-5.jpg",
+  creatorbackground6: "/img/creatorbackground-6.jpg",
+  creatorbackground7: "/img/creatorbackground-7.jpg",
+  creatorbackground8: "/img/creatorbackground-8.jpg",
+  creatorbackground9: "/img/creatorbackground-9.jpg",
+  creatorbackground10: "/img/creatorbackground-10.jpg",
+  creatorbackground11: "/img/creatorbackground-11.jpg",
+  user1: "/img/user-1.png",
+  user2: "/img/user-2.png",
+  user3: "/img/user-3.png",
+  user4: "/img/user-4.png",
+  user5: "/img/user-5.png",
+  user6: "/img/user-6.png",
+  user7: "/img/user-7.png",
+  user8: "/img/user-8.png",
+  user9: "/img/user-9.png",
+  user10: "/img/user-10.png",
+  service1: "/img/service-1.png",
+  service2: "/img/service-2.png",
+  service3: "/img/service-3.png",
+  service4: "/img/service-4.png",
+  logoLight: "/img/logo-light.svg",
+  logo: "/img/logo.svg",
+  facebook: "/img/facebook.svg",
+  twitter: "/img/twitter.svg",
+  telegram: "/img/telegram.svg",
+  youtube: "/img/youtube.svg",
+  vimeo: "/img/vimeo.svg",
+  vector: "/img/VectorHIW.svg",
+  zgcmq: "/img/zgcmq.svg",
+  hero: "/img/hero.png",
+  hero2: "/img/hero2.png",
+  nft_1: "/img/nft_1.png",
+  getAble: "/img/getable.png",
+  nft_image_1: "/img/nft-image-1.png",
+  nft_image_2: "/img/nft-image-2.png",
+  nft_image_3: "/img/nft-image-3.png",
+  musiceWave: "/img/musicwave.png",
+  update: "/img/update.png",
+  earn: "/img/eran.png",
+  NFTVideo: "/img/nftvideo.png",
+  upload: "/img/upload.png",
+  provider1: "/img/provider-1.png",
+  provider2: "/img/provider-2.png",
+  provider3: "/img/provider-3.png",
+  provider4: "/img/provider-4.png",
+  founder1: "/img/founder1.jpg",
+  founder2: "/img/founder2.jpg",
+  founder3: "/img/founder3.jpg",
+  founder4: "/img/founder4.jpg",
+  loader: "/img/loadergif.gif",
+  errorgif: "/img/error.gif",
+  transfer: "/img/transfer.gif",
+  transferEther: "/img/ethereTransfer.gif",
 };
+
+export default images;
