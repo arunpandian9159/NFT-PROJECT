@@ -1,50 +1,10 @@
-import React, { useState, useEffect } from "react";
-import {
-  RiUserFollowFill,
-  RiUserUnfollowFill,
-  RiAwardLine,
-} from "react-icons/ri";
+import React, { useState } from "react";
+import { RiUserFollowFill, RiAwardLine } from "react-icons/ri";
 
-//INTERNAL IMPORT
-import Style from "./FollowerTab.module.css";
 import FollowerTabCard from "./FollowerTabCard/FollowerTabCard";
 import images from "@/images";
 
 const FollowerTab = ({ TopCreator }) => {
-  // const CardArray = [
-  //   {
-  //     background: images.creatorbackground1,
-  //     user: images.user1,
-  //   },
-  //   {
-  //     background: images.creatorbackground2,
-  //     user: images.user2,
-  //   },
-  //   {
-  //     background: images.creatorbackground3,
-  //     user: images.user3,
-  //   },
-  //   {
-  //     background: images.creatorbackground4,
-  //     user: images.user4,
-  //   },
-  //   {
-  //     background: images.creatorbackground5,
-  //     user: images.user5,
-  //   },
-  //   {
-  //     background: images.creatorbackground6,
-  //     user: images.user6,
-  //   },
-  //   {
-  //     background: images.creatorbackground7,
-  //     user: images.user7,
-  //   },
-  //   {
-  //     background: images.creatorbackground8,
-  //     user: images.user8,
-  //   },
-  // ];
   const FollowingArray = [
     {
       background: images.creatorbackground3,
@@ -77,6 +37,7 @@ const FollowerTab = ({ TopCreator }) => {
       seller: "7200d8d8390d9993ujdc93900399djj277x",
     },
   ];
+
   const NewsArray = [
     {
       background: images.creatorbackground1,
@@ -125,40 +86,57 @@ const FollowerTab = ({ TopCreator }) => {
   const [news, setNews] = useState(false);
 
   const openPopular = () => {
-    if (!popular) {
-      setPopular(true);
-      setFollowing(false);
-      setNews(false);
-    }
+    setPopular(true);
+    setFollowing(false);
+    setNews(false);
   };
   const openFollower = () => {
-    if (!following) {
-      setPopular(false);
-      setFollowing(true);
-      setNews(false);
-    }
+    setPopular(false);
+    setFollowing(true);
+    setNews(false);
   };
   const openNews = () => {
-    if (!news) {
-      setPopular(false);
-      setFollowing(false);
-      setNews(true);
-    }
+    setPopular(false);
+    setFollowing(false);
+    setNews(true);
   };
 
   return (
-    <div className={Style.followerTab}>
-      <div className={Style.followerTab_title}>
-        <h2> Top Creators List..</h2>
-        <div className={Style.followerTab_tabs}>
-          <div className={Style.followerTab_tabs_btn}>
-            <button onClick={() => openPopular()}>
+    <div className="w-full py-24 relative pb-52">
+      <div className="w-[30rem] max-md:w-[90%] mx-auto pb-24 text-center">
+        <h2 className="text-4xl max-md:text-3xl mb-16 font-bold gradient-text">
+          Top Creators List..
+        </h2>
+        <div>
+          <div className="bg-slate-900 py-2 px-4 rounded-full flex flex-wrap justify-around gap-4 items-center text-lg shadow-lg shadow-indigo-500/20">
+            <button
+              onClick={() => openPopular()}
+              className={`flex items-center gap-2 py-4 px-6 max-md:p-2 max-md:text-base border-none rounded-full cursor-pointer transition-all duration-300 ${
+                popular
+                  ? "bg-gradient-to-r from-indigo-500 to-violet-500 text-white"
+                  : "bg-slate-100 text-slate-900 hover:bg-transparent hover:text-slate-100 border border-slate-100"
+              }`}
+            >
               <RiUserFollowFill /> Popular
             </button>
-            <button onClick={() => openFollower()}>
+            <button
+              onClick={() => openFollower()}
+              className={`flex items-center gap-2 py-4 px-6 max-md:p-2 max-md:text-base border-none rounded-full cursor-pointer transition-all duration-300 ${
+                following
+                  ? "bg-gradient-to-r from-indigo-500 to-violet-500 text-white"
+                  : "bg-slate-100 text-slate-900 hover:bg-transparent hover:text-slate-100 border border-slate-100"
+              }`}
+            >
               <RiUserFollowFill /> Following
             </button>
-            <button onClick={() => openNews()}>
+            <button
+              onClick={() => openNews()}
+              className={`flex items-center gap-2 py-4 px-6 max-md:p-2 max-md:text-base border-none rounded-full cursor-pointer transition-all duration-300 ${
+                news
+                  ? "bg-gradient-to-r from-indigo-500 to-violet-500 text-white"
+                  : "bg-slate-100 text-slate-900 hover:bg-transparent hover:text-slate-100 border border-slate-100"
+              }`}
+            >
               <RiAwardLine /> NoteWorthy
             </button>
           </div>
@@ -166,7 +144,7 @@ const FollowerTab = ({ TopCreator }) => {
       </div>
 
       {popular && (
-        <div className={Style.followerTab_box}>
+        <div className="w-[80%] max-md:w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 animate-fade-in">
           {TopCreator.map((el, i) => (
             <FollowerTabCard key={i + 1} i={i} el={el} />
           ))}
@@ -174,7 +152,7 @@ const FollowerTab = ({ TopCreator }) => {
       )}
 
       {following && (
-        <div className={Style.followerTab_box}>
+        <div className="w-[80%] max-md:w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 animate-fade-in">
           {FollowingArray.map((el, i) => (
             <FollowerTabCard key={i + 1} i={i} el={el} />
           ))}
@@ -182,17 +160,27 @@ const FollowerTab = ({ TopCreator }) => {
       )}
 
       {news && (
-        <div className={Style.followerTab_box}>
+        <div className="w-[80%] max-md:w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 animate-fade-in">
           {NewsArray.map((el, i) => (
             <FollowerTabCard key={i + 1} i={i} el={el} />
           ))}
         </div>
       )}
 
-      <div className={Style.followerTab_member}>
-        <div className={Style.followerTab_member_box}>
-          <a href="#">Show me more</a>
-          <a href="#">Become, author</a>
+      <div className="text-center">
+        <div className="mx-auto pt-28 flex flex-wrap justify-center gap-6">
+          <a
+            href="#"
+            className="bg-transparent text-slate-100 transition-all duration-300 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-violet-500 mx-6 py-4 px-8 max-md:py-2 max-md:px-4 max-md:text-sm rounded-full border border-slate-100 shadow-lg shadow-indigo-500/20 text-xl"
+          >
+            Show me more
+          </a>
+          <a
+            href="#"
+            className="bg-gradient-to-r from-indigo-500 to-violet-500 text-white mx-6 py-4 px-8 max-md:py-2 max-md:px-4 max-md:text-sm rounded-full border border-indigo-500 shadow-lg shadow-indigo-500/20 text-xl transition-all duration-300 hover:shadow-xl"
+          >
+            Become author
+          </a>
         </div>
       </div>
     </div>

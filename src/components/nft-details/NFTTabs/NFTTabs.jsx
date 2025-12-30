@@ -1,28 +1,29 @@
 import React from "react";
 import Image from "next/image";
 
-//INTERNAL IMPORT
-import Style from "./NFTTabs.module.css";
-
 const NFTTabs = ({ dataTab, icon }) => {
   return (
-    <div className={Style.NFTTabs}>
+    <div>
       {dataTab.map((el, i) => (
-        <div className={Style.NFTTabs_box} key={i + 1}>
+        <div
+          className="flex items-center gap-4 py-4 border-b border-slate-700"
+          key={i + 1}
+        >
           <Image
             src={el}
             alt="profile image"
             width={40}
             height={40}
-            className={Style.NFTTabs_box_img}
+            className="rounded-full"
           />
-          <div className={Style.NFTTabs_box_info}>
-            <span>
-              Offer by $770 by <span>Shoaib Bhai</span>
-              {icon}
+          <div className="grid self-start mt-1">
+            <span className="font-bold flex items-center gap-2">
+              Offer by $770 by{" "}
+              <span className="text-indigo-400">Shoaib Bhai</span>
+              {icon && <span className="text-indigo-400">{icon}</span>}
             </span>
 
-            <small>Jun 14 - 4:12 PM</small>
+            <small className="mt-1 text-slate-400">Jun 14 - 4:12 PM</small>
           </div>
         </div>
       ))}

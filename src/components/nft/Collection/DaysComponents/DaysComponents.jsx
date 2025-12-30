@@ -2,78 +2,89 @@ import React from "react";
 import Image from "next/image";
 import { MdVerified } from "react-icons/md";
 
-//INTERNAL IMPORT
-import Style from "./DaysComponents.module.css";
 import images from "@/images";
 
 const DaysComponents = ({ el, i }) => {
   return (
-    <div className={Style.daysComponent}>
-      <div className={Style.daysComponent_box}>
-        <div className={Style.daysComponent_box_img}>
+    <div className="w-full rounded-2xl transition-all duration-300 cursor-pointer hover:shadow-lg hover:shadow-indigo-500/20 bg-slate-800/50">
+      <div>
+        <div>
           <Image
             src={el.background}
-            className={Style.daysComponent_box_img_img}
+            className="rounded-t-2xl w-full"
             alt="profile background"
             width={500}
             height={300}
-            objectFit="covers"
+            style={{ objectFit: "cover" }}
           />
         </div>
 
-        <div className={Style.daysComponent_box_profile}>
+        <div className="grid grid-cols-3 gap-2">
           <Image
-            src={images[`creatorbackground${i + 2}`]}
+            src={
+              images[`creatorbackground${(i + 2) % 10 || 1}`] ||
+              images.creatorbackground1
+            }
             alt="profile"
             width={200}
             height={200}
-            className={Style.daysComponent_box_img_1}
-            objectFit="covers"
+            className="rounded-bl-2xl w-full"
+            style={{ objectFit: "cover" }}
           />
           <Image
-            src={images[`creatorbackground${i + 4}`]}
+            src={
+              images[`creatorbackground${(i + 4) % 10 || 1}`] ||
+              images.creatorbackground1
+            }
             alt="profile"
             width={200}
             height={200}
-            className={Style.daysComponent_box_img_2}
-            objectFit="covers"
+            className="w-full"
+            style={{ objectFit: "cover" }}
           />
           <Image
-            src={images[`creatorbackground${i + 3}`]}
+            src={
+              images[`creatorbackground${(i + 3) % 10 || 1}`] ||
+              images.creatorbackground1
+            }
             alt="profile"
             width={200}
             height={200}
-            className={Style.daysComponent_box_img_3}
-            objectFit="covers"
+            className="rounded-br-2xl w-full"
+            style={{ objectFit: "cover" }}
           />
         </div>
 
-        <div className={Style.daysComponent_box_title}>
-          <h2>Amazing Collection</h2>
-          <div className={Style.daysComponent_box_title_info}>
-            <div className={Style.daysComponent_box_title_info_profile}>
+        <div className="p-4">
+          <h2 className="text-xl font-bold mb-4 gradient-text">
+            Amazing Collection
+          </h2>
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div className="flex items-center gap-4">
               <Image
                 src={el.user}
                 alt="profile"
                 width={30}
                 height={30}
-                objectFit="covers"
-                className={Style.daysComponent_box_title_info_profile_img}
+                className="rounded-full"
+                style={{ objectFit: "cover" }}
               />
 
-              <p>
+              <p className="text-slate-400">
                 Creator
-                <span>
+                <span className="font-semibold text-slate-100 px-2 flex items-center gap-1">
                   Shoaib Bhai
-                  <small>
+                  <small className="text-indigo-400">
                     <MdVerified />
                   </small>
                 </span>
               </p>
             </div>
 
-            <div className={Style.daysComponent_box_title_info_price}>
-              <small>{i + 4}.255 ETH</small>
+            <div>
+              <small className="font-semibold border-2 border-slate-100 py-2 px-3 rounded-lg">
+                {i + 4}.255 ETH
+              </small>
             </div>
           </div>
         </div>

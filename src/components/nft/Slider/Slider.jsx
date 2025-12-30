@@ -2,38 +2,19 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { TiArrowLeftThick, TiArrowRightThick } from "react-icons/ti";
 
-//INTERNAL IMPORT
-import Style from "./Slider.module.css";
 import SliderCard from "./SliderCard/SliderCard";
 import images from "@/images";
 
 const Slider = () => {
   const FollowingArray = [
-    {
-      background: images.creatorbackground3,
-      user: images.user3,
-    },
-    {
-      background: images.creatorbackground4,
-      user: images.user4,
-    },
-    {
-      background: images.creatorbackground5,
-      user: images.user5,
-    },
-    {
-      background: images.creatorbackground6,
-      user: images.user6,
-    },
-    {
-      background: images.creatorbackground1,
-      user: images.user1,
-    },
-    {
-      background: images.creatorbackground2,
-      user: images.user2,
-    },
+    { background: images.creatorbackground3, user: images.user3 },
+    { background: images.creatorbackground4, user: images.user4 },
+    { background: images.creatorbackground5, user: images.user5 },
+    { background: images.creatorbackground6, user: images.user6 },
+    { background: images.creatorbackground1, user: images.user1 },
+    { background: images.creatorbackground2, user: images.user2 },
   ];
+
   const [width, setWidth] = useState(0);
   const dragSlider = useRef();
 
@@ -53,20 +34,24 @@ const Slider = () => {
   };
 
   return (
-    <div className={Style.slider}>
-      <div className={Style.slider_box}>
-        <h2>Explore NFTs Video</h2>
-        <div className={Style.slider_box_button}>
-          <p>Click on play icon & enjoy Nfts Video</p>
-          <div className={Style.slider_box_button_btn}>
+    <div className="w-full">
+      <div className="w-[80%] max-md:w-[90%] mx-auto pb-32">
+        <h2 className="text-4xl max-md:text-3xl font-bold mb-6 gradient-text">
+          Explore NFTs Video
+        </h2>
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <p className="text-slate-400">
+            Click on play icon & enjoy NFTs Video
+          </p>
+          <div className="flex items-center gap-8 text-3xl">
             <div
-              className={Style.slider_box_button_btn_icon}
+              className="border border-slate-100 p-4 max-md:p-2 flex items-center rounded-full transition-all duration-300 cursor-pointer hover:bg-gradient-to-r hover:from-indigo-500 hover:to-violet-500 hover:border-transparent hover:text-white hover:shadow-lg"
               onClick={() => handleScroll("left")}
             >
               <TiArrowLeftThick />
             </div>
             <div
-              className={Style.slider_box_button_btn_icon}
+              className="border border-slate-100 p-4 max-md:p-2 flex items-center rounded-full transition-all duration-300 cursor-pointer hover:bg-gradient-to-r hover:from-indigo-500 hover:to-violet-500 hover:border-transparent hover:text-white hover:shadow-lg"
               onClick={() => handleScroll("right")}
             >
               <TiArrowRightThick />
@@ -74,10 +59,10 @@ const Slider = () => {
           </div>
         </div>
 
-        <motion.div className={Style.slider_box_itmes} ref={dragSlider}>
+        <motion.div className="w-full overflow-hidden" ref={dragSlider}>
           <motion.div
             ref={dragSlider}
-            className={Style.slider_box_item}
+            className="grid grid-cols-[repeat(6,26.4rem)] max-md:grid-cols-[repeat(6,95%)] gap-4 py-16 max-md:py-8 cursor-grab scrollbar-hide"
             drag="x"
             dragConstraints={{ right: 0, left: -width }}
           >

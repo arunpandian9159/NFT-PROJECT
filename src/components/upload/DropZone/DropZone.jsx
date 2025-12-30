@@ -2,8 +2,6 @@ import React, { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import Image from "next/image";
 
-//INTRNAL IMPORT
-import Style from "./DropZone.module.css";
 import images from "@/images";
 
 const DropZone = ({
@@ -24,7 +22,6 @@ const DropZone = ({
   const [fileUrl, setFileUrl] = useState(null);
 
   const onDrop = useCallback(async (acceptedFile) => {
-    // const url = await uploadToIPFS(acceptedFile[0]);
     const url = await uploadToPinata(acceptedFile[0]);
     setFileUrl(url);
     setImage(url);
@@ -36,66 +33,80 @@ const DropZone = ({
     accept: "image/*",
     maxSize: 5000000,
   });
+
   return (
-    <div className={Style.DropZone}>
-      <div className={Style.DropZone_box} {...getRootProps()}>
+    <div className="w-full my-12">
+      <div
+        className="border-4 border-dashed border-indigo-500 rounded-2xl text-center p-8 cursor-pointer hover:bg-slate-800/50 transition-colors"
+        {...getRootProps()}
+      >
         <input {...getInputProps()} />
-        <div className={Style.DropZone_box_input}>
-          <p>{title}</p>
-          <div className={Style.DropZone_box_input_img}>
+        <div>
+          <p className="text-slate-400 mb-4">{title}</p>
+          <div className="my-8">
             <Image
               src={images.upload}
               alt="upload"
               width={100}
               height={100}
-              objectFit="contain"
-              className={Style.DropZone_box_input_img_img}
+              className="rounded-2xl mx-auto"
+              style={{ objectFit: "contain" }}
             />
           </div>
-          <p>{heading}</p>
-          <p>{subHeading}</p>
+          <p className="text-xl font-bold text-slate-100">{heading}</p>
+          <p className="text-slate-400">{subHeading}</p>
         </div>
       </div>
 
       {fileUrl && (
-        <aside className={Style.DropZone_box_aside}>
-          <div className={Style.DropZone_box_aside_box}>
-            <img src={fileUrl} alt="nft image" width={200} height={200} />
+        <aside className="p-8 border-4 border-dashed border-indigo-500 mt-12 rounded-2xl">
+          <div className="grid grid-cols-1 md:grid-cols-[1.5fr_4fr] gap-12">
+            <img src={fileUrl} alt="nft image" className="w-full rounded-2xl" />
 
-            <div className={Style.DropZone_box_aside_box_preview}>
-              <div className={Style.DropZone_box_aside_box_preview_one}>
+            <div>
+              <div className="flex flex-wrap items-center justify-between font-bold text-lg gap-4">
                 <p>
-                  <samp>NFT Name:</samp>
+                  <span className="text-indigo-400 mr-4">NFT Name:</span>
                   {name || ""}
                 </p>
                 <p>
-                  <samp>Website:</samp>
+                  <span className="text-indigo-400 mr-4">Website:</span>
                   {website || ""}
                 </p>
               </div>
 
-              <div className={Style.DropZone_box_aside_box_preview_two}>
+              <div className="my-8">
                 <p>
-                  <span>Description</span>
-                  {description || ""}
+                  <span className="text-lg font-bold text-indigo-400 mr-4">
+                    Description
+                  </span>
+                  <span className="text-slate-400">{description || ""}</span>
                 </p>
               </div>
 
-              <div className={Style.DropZone_box_aside_box_preview_three}>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <p>
-                  <span>Royalties</span>
+                  <span className="text-lg font-bold text-indigo-400 mr-4 block">
+                    Royalties
+                  </span>
                   {royalties || ""}
                 </p>
                 <p>
-                  <span>FileSize</span>
+                  <span className="text-lg font-bold text-indigo-400 mr-4 block">
+                    FileSize
+                  </span>
                   {fileSize || ""}
                 </p>
                 <p>
-                  <span>Properties</span>
+                  <span className="text-lg font-bold text-indigo-400 mr-4 block">
+                    Properties
+                  </span>
                   {properties || ""}
                 </p>
                 <p>
-                  <span>Category</span>
+                  <span className="text-lg font-bold text-indigo-400 mr-4 block">
+                    Category
+                  </span>
                   {category || ""}
                 </p>
               </div>
