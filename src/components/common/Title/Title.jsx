@@ -1,14 +1,15 @@
 import React from "react";
 
-//INTERNAL IMPORT
-import Style from "./Title.module.css";
-
 const Title = ({ heading, paragraph }) => {
   return (
-    <div className={Style.title}>
-      <div className={Style.title_box}>
-        <h2>{heading}</h2>
-        <p>{paragraph}</p>
+    <div className="w-full my-16 mb-8">
+      <div className="w-[90%] max-w-[1200px] mx-auto text-center">
+        <h2 className="text-3xl md:text-4xl leading-tight mb-4 font-bold gradient-text">
+          {heading}
+        </h2>
+        <p className="text-lg text-slate-400 max-w-[600px] mx-auto leading-relaxed">
+          {paragraph}
+        </p>
       </div>
     </div>
   );

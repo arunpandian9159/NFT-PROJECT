@@ -1,9 +1,6 @@
 import React from "react";
 import Link from "next/link";
 
-//INTERNAL IMPORT
-import Style from "./Discover.module.css";
-
 const Discover = () => {
   //--------DISCOVER NAVIGATION MENU
   const discover = [
@@ -32,10 +29,14 @@ const Discover = () => {
       link: "connectWallet",
     },
   ];
+
   return (
     <div>
       {discover.map((el, i) => (
-        <div key={i + 1} className={Style.discover}>
+        <div
+          key={i + 1}
+          className="py-2 px-4 transition-all duration-300 z-[2222222222] hover:bg-slate-100 hover:text-slate-800 rounded cursor-pointer"
+        >
           <Link href={{ pathname: `${el.link}` }}>{el.name}</Link>
         </div>
       ))}

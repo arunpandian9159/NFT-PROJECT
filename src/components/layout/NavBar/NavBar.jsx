@@ -1,25 +1,20 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import Image from "next/image";
 import { DiJqueryLogo } from "react-icons/di";
-//----IMPORT ICON
 import { MdNotifications } from "react-icons/md";
 import { BsSearch } from "react-icons/bs";
-import { CgMenuLeft, CgMenuRight } from "react-icons/cg";
+import { CgMenuRight } from "react-icons/cg";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-//INTERNAL IMPORT
-import Style from "./NavBar.module.css";
 import { Discover, HelpCenter, Notification, Profile, SideBar } from "./index";
 import Button from "../../common/Button/Button";
 import Error from "../../common/Error/Error";
 import images from "@/images";
 
-//IMPORT FROM SMART CONTRACT
 import { NFTMarketplaceContext } from "../../../context/NFTMarketplaceContext";
 
 const NavBar = () => {
-  //----USESTATE COMPONNTS
   const [discover, setDiscover] = useState(false);
   const [help, setHelp] = useState(false);
   const [notification, setNotification] = useState(false);
@@ -78,59 +73,67 @@ const NavBar = () => {
     }
   };
 
-  //SMART CONTRACT SECTION
   const { currentAccount, connectWallet, openError } = useContext(
     NFTMarketplaceContext
   );
 
   return (
-    <div className={Style.navbar}>
-      <div className={Style.navbar_container}>
-        <div className={Style.navbar_container_left}>
-          <div className={Style.logo}>
+    <div className="w-full py-4 sticky top-0 bg-slate-900/95 backdrop-blur-lg border-b border-indigo-500/20 z-[1000]">
+      <div className="w-[90%] max-w-[1200px] mx-auto grid grid-cols-2 items-center justify-between gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] items-center">
+          <div className="text-slate-100 text-6xl cursor-pointer">
             <DiJqueryLogo onClick={() => router.push("/")} />
           </div>
-          <div className={Style.navbar_container_left_box_input}>
-            <div className={Style.navbar_container_left_box_input_box}>
-              <input type="text" placeholder="Search NFT" />
-              <BsSearch onClick={() => {}} className={Style.search_icon} />
+          <div className="hidden md:block">
+            <div className="w-[70%] border border-slate-700 bg-slate-800 flex items-center py-3 px-4 rounded-xl transition-all duration-300 focus-within:border-indigo-500 focus-within:ring-4 focus-within:ring-indigo-500/10">
+              <input
+                type="text"
+                placeholder="Search NFT"
+                className="w-[90%] border-none outline-none bg-transparent text-slate-100"
+              />
+              <BsSearch className="cursor-pointer text-xl text-slate-400 hover:text-indigo-400 transition-colors" />
             </div>
           </div>
         </div>
 
-        {/* //END OF LEFT SECTION */}
-        <div className={Style.navbar_container_right}>
-          <div className={Style.navbar_container_right_discover}>
-            {/* DISCOVER MENU */}
-            <p onClick={(e) => openMenu(e)}>Discover</p>
+        <div className="grid grid-cols-3 md:grid-cols-[1fr_1fr_0.5fr_1fr_0.3fr] gap-4 items-center">
+          <div className="relative cursor-pointer hidden md:block">
+            <p
+              onClick={(e) => openMenu(e)}
+              className="hover:text-indigo-400 transition-colors"
+            >
+              Discover
+            </p>
             {discover && (
-              <div className={Style.navbar_container_right_discover_box}>
+              <div className="absolute p-4 shadow-lg shadow-indigo-500/20 text-base w-60 rounded-2xl bg-slate-900 animate-fade-in">
                 <Discover />
               </div>
             )}
           </div>
 
-          {/* HELP CENTER MENU */}
-          <div className={Style.navbar_container_right_help}>
-            <p onClick={(e) => openMenu(e)}>Help Center</p>
+          <div className="relative cursor-pointer hidden md:block">
+            <p
+              onClick={(e) => openMenu(e)}
+              className="hover:text-indigo-400 transition-colors"
+            >
+              Help Center
+            </p>
             {help && (
-              <div className={Style.navbar_container_right_help_box}>
+              <div className="absolute p-4 shadow-lg shadow-indigo-500/20 text-base w-60 rounded-2xl bg-slate-900 animate-fade-in">
                 <HelpCenter />
               </div>
             )}
           </div>
 
-          {/* NOTIFICATION */}
-          <div className={Style.navbar_container_right_notify}>
+          <div className="relative cursor-pointer">
             <MdNotifications
-              className={Style.notify}
+              className="text-3xl hover:text-indigo-400 transition-colors"
               onClick={() => openNotification()}
             />
             {notification && <Notification />}
           </div>
 
-          {/* CREATE BUTTON SECTION */}
-          <div className={Style.navbar_container_right_button}>
+          <div className="relative cursor-pointer hidden md:block">
             {currentAccount == "" ? (
               <Button btnName="Connect" handleClick={() => connectWallet()} />
             ) : (
@@ -141,37 +144,32 @@ const NavBar = () => {
             )}
           </div>
 
-          {/* USER PROFILE */}
-
-          <div className={Style.navbar_container_right_profile_box}>
-            <div className={Style.navbar_container_right_profile}>
+          <div className="relative cursor-pointer">
+            <div className="relative">
               <Image
                 src={images.user1}
                 alt="Profile"
                 width={40}
                 height={40}
                 onClick={() => openProfile()}
-                className={Style.navbar_container_right_profile}
+                className="rounded-full hover:ring-2 hover:ring-indigo-500 transition-all"
               />
 
               {profile && <Profile currentAccount={currentAccount} />}
             </div>
           </div>
 
-          {/* MENU BUTTON */}
-
-          <div className={Style.navbar_container_right_menuBtn}>
+          <div className="block md:hidden">
             <CgMenuRight
-              className={Style.menuIcon}
+              className="text-4xl cursor-pointer hover:text-indigo-400 transition-colors"
               onClick={() => openSideBar()}
             />
           </div>
         </div>
       </div>
 
-      {/* SIDBAR CPMPONE/NT */}
       {openSideMenu && (
-        <div className={Style.sideBar}>
+        <div className="fixed top-0 right-0 w-96 bg-slate-900 shadow-lg shadow-indigo-500/20 h-screen overflow-y-auto z-[11111] animate-slide-down">
           <SideBar
             setOpenSideMenu={setOpenSideMenu}
             currentAccount={currentAccount}

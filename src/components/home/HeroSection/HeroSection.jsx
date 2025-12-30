@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
 //INTERNAL IMPORT
-import Style from "./HeroSection.module.css";
 import Button from "../../common/Button/Button";
 import images from "@/images";
 
@@ -13,12 +12,15 @@ import { NFTMarketplaceContext } from "../../../context/NFTMarketplaceContext";
 const HeroSection = () => {
   const { titleData } = useContext(NFTMarketplaceContext);
   const router = useRouter();
+
   return (
-    <div className={Style.heroSection}>
-      <div className={Style.heroSection_box}>
-        <div className={Style.heroSection_box_left}>
-          <h1 className="gradient-text">{titleData} 🚀</h1>
-          <p>
+    <div className="w-[90%] max-w-[1200px] mx-auto my-16 py-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="pr-0 lg:pr-8">
+          <h1 className="text-4xl lg:text-6xl leading-tight mb-6 font-extrabold gradient-text">
+            {titleData} 🚀
+          </h1>
+          <p className="mb-10 text-lg leading-relaxed text-slate-400">
             Discover, collect, and trade extraordinary NFTs in the most advanced
             marketplace. Create your unique digital assets and join the future
             of digital ownership.
@@ -28,12 +30,13 @@ const HeroSection = () => {
             handleClick={() => router.push("/searchPage")}
           />
         </div>
-        <div className={Style.heroSection_box_right}>
+        <div className="relative group">
           <Image
             src={images.hero}
             alt="Hero section"
             width={600}
             height={600}
+            className="rounded-2xl shadow-lg shadow-indigo-500/20 transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-xl group-hover:shadow-indigo-500/30"
           />
         </div>
       </div>

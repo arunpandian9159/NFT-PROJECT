@@ -1,21 +1,19 @@
 import React from "react";
 import Image from "next/image";
 
-//INTERNAL IMPORT
-import Style from "./Loader.module.css";
 import images from "@/images";
 
 const Loader = () => {
   return (
-    <div className={Style.Loader}>
-      <div className={Style.Loader_box}>
-        <div className={Style.Loader_box_img}>
+    <div className="w-full my-16">
+      <div className="w-1/2 mx-auto text-center">
+        <div className="mb-56 -mt-8 animate-spin-slow">
           <Image
             src={images.loader}
             alt="loader"
             width={200}
             height={200}
-            className={Style.Loader_box_img_img}
+            className="rounded-full mx-auto"
             style={{ objectFit: "cover" }}
           />
         </div>

@@ -1,9 +1,6 @@
 import React from "react";
 import Link from "next/link";
 
-//INTERNAL IMPORT
-import Style from "./HelpCenter.module.css";
-
 const HelpCenter = () => {
   const helpCenter = [
     {
@@ -27,10 +24,14 @@ const HelpCenter = () => {
       link: "subscription",
     },
   ];
+
   return (
-    <div className={Style.box}>
+    <div>
       {helpCenter.map((el, i) => (
-        <div className={Style.helpCenter} key={i + 1}>
+        <div
+          className="py-2 px-4 transition-all duration-300 hover:bg-slate-100 hover:text-slate-800 rounded cursor-pointer"
+          key={i + 1}
+        >
           <Link href={{ pathname: `${el.link}` }}>{el.name}</Link>
         </div>
       ))}
