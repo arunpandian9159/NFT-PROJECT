@@ -1,5 +1,5 @@
-import NFTDescription from "./NFTDescription/NFTDescription";
-import NFTDetailsImg from "./NFTDetailsImg/NFTDetailsImg";
-import NFTTabs from "./NFTTabs/NFTTabs";
+import NFTDescription from "./NFTDescription";
+import NFTDetailsImg from "./NFTDetailsImg";
+import NFTTabs from "./NFTTabs";
 
 export { NFTDescription, NFTDetailsImg, NFTTabs };

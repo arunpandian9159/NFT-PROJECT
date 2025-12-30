@@ -5,7 +5,7 @@ import {
   BsCalendar3,
 } from "react-icons/bs";
 
-import DaysComponent from "./DaysComponents/DaysComponents";
+import DaysComponent from "./DaysComponents";
 import images from "@/images";
 
 const Collection = () => {

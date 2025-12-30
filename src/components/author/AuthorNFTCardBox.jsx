@@ -2,7 +2,7 @@ import React from "react";
 
 import images from "@/images";
 import { NFTCardTwo } from "../../collection/collectionIndex";
-import FollowerTabCard from "../../nft/FollowerTab/FollowerTabCard/FollowerTabCard";
+import FollowerTabCard from "../nft/FollowerTab/FollowerTabCard";
 
 const AuthorNFTCardBox = ({
   collectiables,

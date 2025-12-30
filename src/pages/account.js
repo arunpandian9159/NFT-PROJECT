@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useDropzone } from "react-dropzone";
 
 import images from "@/images";
-import Form from "../components/account/Form/Form";
+import Form from "../components/account/Form";
 
 const Account = () => {
   const [fileUrl, setFileUrl] = useState(null);

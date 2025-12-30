@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { RiUserFollowFill, RiAwardLine } from "react-icons/ri";
 
-import FollowerTabCard from "./FollowerTabCard/FollowerTabCard";
+import FollowerTabCard from "./FollowerTabCard";
 import images from "@/images";
 
 const FollowerTab = ({ TopCreator }) => {

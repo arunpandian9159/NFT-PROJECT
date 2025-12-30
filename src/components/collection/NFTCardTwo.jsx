@@ -4,7 +4,7 @@ import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { MdTimer } from "react-icons/md";
 import Link from "next/link";
 
-import LikeProfile from "../../common/LikeProfile/LikeProfile";
+import LikeProfile from "../common/LikeProfile";
 
 const NFTCardTwo = ({ NFTData }) => {
   const [like, setLike] = useState(false);

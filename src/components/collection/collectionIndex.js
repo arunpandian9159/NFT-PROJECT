@@ -1,5 +1,5 @@
-import CollectionProfile from "./collectionProfile/collectionProfile";
-import Banner from "./Banner/Banner";
-import NFTCardTwo from "./NFTCardTwo/NFTCardTwo";
+import CollectionProfile from "./CollectionProfile";
+import Banner from "./Banner";
+import NFTCardTwo from "./NFTCardTwo";
 
 export { CollectionProfile, Banner, NFTCardTwo };
