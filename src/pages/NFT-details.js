@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { useRouter } from "next/router";
 
 // Internal Import
-import { Button, Category, Brand } from "@/components";
+import { Category, Brand } from "@/components";
 import NFTDetailsPage from "@/components/nft-details/NFTDetailsPage";
 
 // Smart Contract Import
@@ -27,7 +27,7 @@ const NFTDetails = () => {
   }, [router.isReady]);
 
   return (
-    <div>
+    <div className="min-h-screen">
       <NFTDetailsPage nft={nft} />
       <Category />
       <Brand />
