@@ -201,6 +201,8 @@ const BigNFTSilder = () => {
               src={sliderData[idNumber].nftImage}
               alt="NFT IMAGE"
               className={Style.bigNFTSlider_box_right_box_img}
+              width={800}
+              height={800}
             />
 
             <div className={Style.bigNFTSlider_box_right_box_like}>
