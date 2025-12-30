@@ -46,58 +46,58 @@ const SideBar = ({ setOpenSideMenu, currentAccount, connectWallet }) => {
   };
 
   return (
-    <div className="bg-slate-900 h-full overflow-y-auto scrollbar-hide">
+    <div className="bg-gray-950 h-full overflow-y-auto scrollbar-hide">
       <GrClose
-        className="absolute top-12 right-8 transition-all duration-200 cursor-pointer shadow-lg shadow-indigo-500/20 hover:rotate-45 text-xl bg-slate-100 p-1 rounded"
+        className="absolute top-12 right-8 transition-all duration-200 cursor-pointer hover:rotate-45 text-xl bg-cyan-400 text-gray-950 p-1 rounded shadow-[0_0_15px_rgba(34,211,238,0.4)]"
         onClick={() => closeSideBar()}
       />
 
-      <div className="p-8 border-b border-slate-100 bg-slate-900">
+      <div className="p-8 border-b border-cyan-400/20 bg-gray-950">
         <a href="/">
-          <DiJqueryLogo className="text-7xl mb-12 mt-8 text-slate-100" />
+          <DiJqueryLogo className="text-7xl mb-12 mt-8 text-white hover:text-cyan-400 transition-colors" />
         </a>
-        <p className="-mt-8 text-slate-400">
+        <p className="-mt-8 text-gray-400">
           Discover the most outstanding articles on all topics of NFT & write
           your own stories and share them
         </p>
         <div className="flex gap-5 text-2xl items-center mt-6">
           <a
             href="#"
-            className="p-1 rounded-full transition-all duration-300 grid hover:bg-gradient-to-r from-indigo-500 to-violet-500 hover:text-white hover:shadow-lg"
+            className="p-1 rounded-full transition-all duration-300 grid bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-fuchsia-500 hover:text-white hover:shadow-[0_0_15px_rgba(34,211,238,0.4)]"
           >
             <TiSocialFacebook />
           </a>
           <a
             href="#"
-            className="p-1 rounded-full transition-all duration-300 grid hover:bg-gradient-to-r from-indigo-500 to-violet-500 hover:text-white hover:shadow-lg"
+            className="p-1 rounded-full transition-all duration-300 grid bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-fuchsia-500 hover:text-white hover:shadow-[0_0_15px_rgba(34,211,238,0.4)]"
           >
             <TiSocialLinkedin />
           </a>
           <a
             href="#"
-            className="p-1 rounded-full transition-all duration-300 grid hover:bg-gradient-to-r from-indigo-500 to-violet-500 hover:text-white hover:shadow-lg"
+            className="p-1 rounded-full transition-all duration-300 grid bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-fuchsia-500 hover:text-white hover:shadow-[0_0_15px_rgba(34,211,238,0.4)]"
           >
             <TiSocialTwitter />
           </a>
           <a
             href="#"
-            className="p-1 rounded-full transition-all duration-300 grid hover:bg-gradient-to-r from-indigo-500 to-violet-500 hover:text-white hover:shadow-lg"
+            className="p-1 rounded-full transition-all duration-300 grid bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-fuchsia-500 hover:text-white hover:shadow-[0_0_15px_rgba(34,211,238,0.4)]"
           >
             <TiSocialYoutube />
           </a>
           <a
             href="#"
-            className="p-1 rounded-full transition-all duration-300 grid hover:bg-gradient-to-r from-indigo-500 to-violet-500 hover:text-white hover:shadow-lg"
+            className="p-1 rounded-full transition-all duration-300 grid bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-fuchsia-500 hover:text-white hover:shadow-[0_0_15px_rgba(34,211,238,0.4)]"
           >
             <TiSocialInstagram />
           </a>
         </div>
       </div>
 
-      <div className="p-8 uppercase font-medium border-b border-slate-100">
+      <div className="p-8 uppercase font-medium border-b border-cyan-400/20">
         <div>
           <div
-            className="flex justify-between items-center cursor-pointer"
+            className="flex justify-between items-center cursor-pointer hover:text-cyan-400 transition-colors"
             onClick={() => setOpenDiscover(!openDiscover)}
           >
             <p>Discover</p>
@@ -113,7 +113,7 @@ const SideBar = ({ setOpenSideMenu, currentAccount, connectWallet }) => {
               {discover.map((el, i) => (
                 <p
                   key={i + 1}
-                  className="py-2 text-sm normal-case hover:text-indigo-400 transition-colors"
+                  className="py-2 text-sm normal-case hover:text-cyan-400 transition-colors"
                 >
                   <Link href={{ pathname: `${el.link}` }}>{el.name}</Link>
                 </p>
@@ -124,7 +124,7 @@ const SideBar = ({ setOpenSideMenu, currentAccount, connectWallet }) => {
 
         <div className="mt-6">
           <div
-            className="flex justify-between items-center cursor-pointer"
+            className="flex justify-between items-center cursor-pointer hover:text-cyan-400 transition-colors"
             onClick={() => setOpenHelp(!openHelp)}
           >
             <p>Help Center</p>
@@ -138,7 +138,7 @@ const SideBar = ({ setOpenSideMenu, currentAccount, connectWallet }) => {
               {helpCenter.map((el, i) => (
                 <p
                   key={i + 1}
-                  className="py-2 text-sm normal-case hover:text-indigo-400 transition-colors"
+                  className="py-2 text-sm normal-case hover:text-cyan-400 transition-colors"
                 >
                   <Link href={{ pathname: `${el.link}` }}>{el.name}</Link>
                 </p>

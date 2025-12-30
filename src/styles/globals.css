@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -8,34 +8,35 @@
 
   html,
   body {
-    @apply p-0 m-0 font-poppins text-base bg-slate-900 text-slate-100 leading-relaxed antialiased;
+    @apply p-0 m-0 font-inter text-base bg-gray-950 text-white leading-relaxed antialiased;
     background-image:
-      radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+      radial-gradient(circle at 20% 80%, rgba(34, 211, 238, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(217, 70, 239, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
   }
 
   input {
-    @apply text-slate-100 bg-slate-800 border border-slate-700 rounded-xl transition-all duration-300;
+    @apply text-white bg-gray-900 border border-gray-700 rounded-xl transition-all duration-300;
   }
 
   input:focus {
-    @apply outline-none border-indigo-500 ring-4 ring-indigo-500/10;
+    @apply outline-none border-cyan-400 ring-4 ring-cyan-400/10;
   }
 
   input::placeholder {
-    @apply text-slate-400;
+    @apply text-gray-500;
   }
 
   textarea {
-    @apply text-slate-100 bg-slate-800 border border-slate-700 rounded-xl transition-all duration-300 resize-y;
+    @apply text-white bg-gray-900 border border-gray-700 rounded-xl transition-all duration-300 resize-y;
   }
 
   textarea:focus {
-    @apply outline-none border-indigo-500 ring-4 ring-indigo-500/10;
+    @apply outline-none border-cyan-400 ring-4 ring-cyan-400/10;
   }
 
   textarea::placeholder {
-    @apply text-slate-400;
+    @apply text-gray-500;
   }
 
   a {
@@ -48,59 +49,94 @@
   }
 
   ::selection {
-    @apply text-slate-900 bg-indigo-500;
+    @apply text-gray-950 bg-cyan-400;
   }
 }
 
 @layer components {
+
+  /* Gradient text with cyan to pink */
   .gradient-text {
-    @apply bg-gradient-to-r from-indigo-500 to-violet-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-cyan-400 via-blue-500 to-fuchsia-500 bg-clip-text text-transparent;
   }
 
+  /* Neumorphic card */
   .card {
-    @apply bg-slate-800 rounded-xl shadow-lg shadow-indigo-500/20 transition-all duration-300;
+    @apply bg-gray-900 rounded-2xl transition-all duration-300;
+    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.5), -4px -4px 12px rgba(50, 50, 50, 0.3);
   }
 
   .card:hover {
-    @apply shadow-xl shadow-indigo-500/30 -translate-y-0.5;
+    @apply -translate-y-1;
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.3), 0 0 40px rgba(34, 211, 238, 0.15);
   }
 
+  /* Primary button with neon glow */
   .btn-primary {
-    @apply bg-gradient-to-r from-indigo-500 to-violet-500 text-white border-none rounded-xl py-3 px-6 font-semibold cursor-pointer transition-all duration-300;
+    @apply bg-gradient-to-r from-cyan-400 via-blue-500 to-fuchsia-500 text-white border-none rounded-xl py-3 px-6 font-semibold cursor-pointer transition-all duration-300;
+    box-shadow: 0 4px 15px rgba(34, 211, 238, 0.3);
   }
 
   .btn-primary:hover {
-    @apply -translate-y-0.5 shadow-lg shadow-indigo-500/30;
+    @apply -translate-y-0.5;
+    box-shadow: 0 0 25px rgba(34, 211, 238, 0.5), 0 0 50px rgba(217, 70, 239, 0.3);
   }
 
+  /* Secondary button */
   .btn-secondary {
-    @apply bg-gradient-to-r from-cyan-500 to-blue-500 text-white border-none rounded-xl py-3 px-6 font-semibold cursor-pointer transition-all duration-300;
+    @apply bg-gradient-to-r from-fuchsia-500 to-pink-500 text-white border-none rounded-xl py-3 px-6 font-semibold cursor-pointer transition-all duration-300;
+    box-shadow: 0 4px 15px rgba(217, 70, 239, 0.3);
   }
 
   .btn-secondary:hover {
-    @apply -translate-y-0.5 shadow-lg shadow-cyan-500/30;
+    @apply -translate-y-0.5;
+    box-shadow: 0 0 25px rgba(217, 70, 239, 0.5), 0 0 50px rgba(34, 211, 238, 0.3);
   }
 
+  /* Glass effect with neon border */
   .glass-effect {
-    @apply bg-slate-800/80 backdrop-blur-lg border border-indigo-500/20;
+    @apply bg-gray-900/80 backdrop-blur-lg border border-cyan-400/20;
+  }
+
+  /* Neumorphic surface */
+  .neumorphic {
+    @apply bg-gray-900 rounded-2xl;
+    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.5), -4px -4px 12px rgba(50, 50, 50, 0.3);
+  }
+
+  /* Neumorphic inset (pressed) */
+  .neumorphic-inset {
+    @apply bg-gray-900 rounded-xl;
+    box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.5), inset -4px -4px 8px rgba(50, 50, 50, 0.2);
+  }
+
+  /* Neon border glow */
+  .neon-border {
+    @apply border border-cyan-400/30;
+    box-shadow: 0 0 10px rgba(34, 211, 238, 0.2), inset 0 0 10px rgba(34, 211, 238, 0.05);
+  }
+
+  .neon-border:hover {
+    @apply border-cyan-400/60;
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.4), inset 0 0 15px rgba(34, 211, 238, 0.1);
   }
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar - Cyber theme */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-slate-700 rounded;
+  @apply bg-gray-900 rounded;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gradient-to-b from-indigo-500 to-violet-500 rounded;
+  @apply bg-gradient-to-b from-cyan-400 to-fuchsia-500 rounded;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-indigo-400;
+  @apply bg-cyan-300;
 }
 
 @media (prefers-color-scheme: dark) {

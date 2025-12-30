@@ -29,7 +29,7 @@ const HelpCenter = () => {
     <div>
       {helpCenter.map((el, i) => (
         <div
-          className="py-2 px-4 transition-all duration-300 hover:bg-slate-100 hover:text-slate-800 rounded cursor-pointer"
+          className="py-2 px-4 transition-all duration-300 hover:bg-cyan-400/10 hover:text-cyan-400 rounded cursor-pointer"
           key={i + 1}
         >
           <Link href={{ pathname: `${el.link}` }}>{el.name}</Link>

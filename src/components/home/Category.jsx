@@ -24,24 +24,24 @@ const Category = () => {
       <div className="py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8">
         {CategoryArray.map((el, i) => (
           <div
-            className="leading-none transition-all duration-300 rounded-2xl overflow-hidden cursor-pointer pb-4 hover:shadow-lg hover:shadow-indigo-500/20 bg-slate-800/50 group"
+            className="leading-none transition-all duration-300 rounded-2xl overflow-hidden cursor-pointer pb-4 bg-gray-900 group shadow-[8px_8px_16px_rgba(0,0,0,0.5),-4px_-4px_12px_rgba(50,50,50,0.3)] hover:shadow-[0_0_20px_rgba(34,211,238,0.3)] border border-cyan-400/10 hover:border-cyan-400/40"
             key={i + 1}
           >
             <Image
               src={el.images}
-              className="rounded-2xl w-full h-36 object-cover group-hover:scale-105 transition-transform duration-300"
+              className="rounded-t-2xl w-full h-36 object-cover group-hover:scale-105 transition-transform duration-300"
               alt="Background image"
               width={350}
               height={150}
             />
 
             <div className="flex items-center p-4 gap-4">
-              <span className="text-4xl mt-4 text-indigo-400">
+              <span className="text-4xl mt-4 text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]">
                 <BsCircleFill />
               </span>
               <div>
-                <h4 className="text-slate-100 font-semibold">{el.name}</h4>
-                <small className="text-slate-400">{i + 1}995 NFTs</small>
+                <h4 className="text-white font-semibold">{el.name}</h4>
+                <small className="text-gray-400">{i + 1}995 NFTs</small>
               </div>
             </div>
           </div>

@@ -20,7 +20,7 @@ const HeroSection = () => {
           <h1 className="text-4xl lg:text-6xl leading-tight mb-6 font-extrabold gradient-text">
             {titleData} 🚀
           </h1>
-          <p className="mb-10 text-lg leading-relaxed text-slate-400">
+          <p className="mb-10 text-lg leading-relaxed text-gray-400">
             Discover, collect, and trade extraordinary NFTs in the most advanced
             marketplace. Create your unique digital assets and join the future
             of digital ownership.
@@ -31,12 +31,13 @@ const HeroSection = () => {
           />
         </div>
         <div className="relative group">
+          <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-fuchsia-500 rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
           <Image
             src={images.hero}
             alt="Hero section"
             width={600}
             height={600}
-            className="rounded-2xl shadow-lg shadow-indigo-500/20 transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-xl group-hover:shadow-indigo-500/30"
+            className="relative rounded-2xl transition-all duration-300 group-hover:scale-[1.02] shadow-[8px_8px_16px_rgba(0,0,0,0.5),-4px_-4px_12px_rgba(50,50,50,0.3)]"
           />
         </div>
       </div>

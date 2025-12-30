@@ -72,7 +72,7 @@ const BigNFTSlider = () => {
   return (
     <div>
       <div className="mx-auto w-[80%] max-lg:w-[90%] py-32 max-lg:pt-[28rem] grid grid-cols-12 max-lg:grid-cols-1 items-center gap-4">
-        <div className="col-span-6 max-lg:col-span-1 row-span-full bg-slate-900 shadow-md shadow-indigo-500/10 rounded-2xl p-8 max-lg:p-6 z-10 min-h-[90vh]">
+        <div className="col-span-6 max-lg:col-span-1 row-span-full bg-gray-900 rounded-2xl p-8 max-lg:p-6 z-10 min-h-[90vh] shadow-[8px_8px_16px_rgba(0,0,0,0.5),-4px_-4px_12px_rgba(50,50,50,0.3)] border border-cyan-400/10">
           <h2 className="text-4xl font-bold mb-6 gradient-text">
             {sliderData[idNumber].title}
           </h2>
@@ -80,17 +80,17 @@ const BigNFTSlider = () => {
           <div className="grid grid-cols-2 max-lg:grid-cols-[1.8fr_1fr] items-center gap-4">
             <div className="flex items-center gap-4">
               <Image
-                className="rounded-full"
+                className="rounded-full ring-2 ring-cyan-400/50"
                 src={sliderData[idNumber].image}
                 alt="profile image"
                 width={50}
                 height={50}
               />
               <div>
-                <p className="text-slate-400 text-sm">Creator</p>
+                <p className="text-gray-400 text-sm">Creator</p>
                 <h4 className="flex items-center gap-2 font-semibold">
                   {sliderData[idNumber].name}
-                  <span className="text-indigo-400">
+                  <span className="text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]">
                     <MdVerified />
                   </span>
                 </h4>
@@ -98,9 +98,9 @@ const BigNFTSlider = () => {
             </div>
 
             <div className="flex items-center gap-4">
-              <AiFillFire className="text-5xl max-lg:text-2xl text-orange-500" />
+              <AiFillFire className="text-5xl max-lg:text-2xl text-fuchsia-500 drop-shadow-[0_0_8px_rgba(217,70,239,0.5)]" />
               <div>
-                <p className="text-slate-400 text-sm">Collection</p>
+                <p className="text-gray-400 text-sm">Collection</p>
                 <h4 className="font-semibold">
                   {sliderData[idNumber].collection}
                 </h4>
@@ -108,44 +108,44 @@ const BigNFTSlider = () => {
             </div>
           </div>
 
-          <div className="border-2 border-slate-700 my-8 px-8 max-lg:px-4 py-4 rounded-xl bg-slate-800/50">
-            <small className="bg-slate-700 py-4 px-8 rounded-lg font-semibold inline-block">
+          <div className="border-2 border-cyan-400/20 my-8 px-8 max-lg:px-4 py-4 rounded-xl bg-gray-950/50">
+            <small className="bg-gradient-to-r from-cyan-400 to-fuchsia-500 py-4 px-8 rounded-lg font-semibold inline-block text-white shadow-[0_4px_15px_rgba(34,211,238,0.3)]">
               Current Bid
             </small>
             <p className="text-2xl font-bold mt-4 gradient-text">
               {sliderData[idNumber].price}{" "}
-              <span className="text-slate-400 text-base">$221,21</span>
+              <span className="text-gray-400 text-base">$221,21</span>
             </p>
 
-            <p className="flex items-center gap-4 mt-6 text-slate-400">
-              <MdTimer className="text-3xl text-indigo-400" />
+            <p className="flex items-center gap-4 mt-6 text-gray-400">
+              <MdTimer className="text-3xl text-cyan-400" />
               <span>Auction ending in</span>
             </p>
 
-            <div className="flex items-center gap-8 max-lg:gap-4 text-center py-4 pb-8 border-b border-slate-700">
+            <div className="flex items-center gap-8 max-lg:gap-4 text-center py-4 pb-8 border-b border-gray-700">
               <div>
-                <p className="text-3xl max-lg:text-xl font-black">
+                <p className="text-3xl max-lg:text-xl font-black text-cyan-400">
                   {sliderData[idNumber].time.days}
                 </p>
-                <span className="text-slate-400">Days</span>
+                <span className="text-gray-400">Days</span>
               </div>
               <div>
-                <p className="text-3xl max-lg:text-xl font-black">
+                <p className="text-3xl max-lg:text-xl font-black text-cyan-400">
                   {sliderData[idNumber].time.hours}
                 </p>
-                <span className="text-slate-400">Hours</span>
+                <span className="text-gray-400">Hours</span>
               </div>
               <div>
-                <p className="text-3xl max-lg:text-xl font-black">
+                <p className="text-3xl max-lg:text-xl font-black text-cyan-400">
                   {sliderData[idNumber].time.minutes}
                 </p>
-                <span className="text-slate-400">mins</span>
+                <span className="text-gray-400">mins</span>
               </div>
               <div>
-                <p className="text-3xl max-lg:text-xl font-black">
+                <p className="text-3xl max-lg:text-xl font-black text-cyan-400">
                   {sliderData[idNumber].time.seconds}
                 </p>
-                <span className="text-slate-400">secs</span>
+                <span className="text-gray-400">secs</span>
               </div>
             </div>
 
@@ -157,28 +157,29 @@ const BigNFTSlider = () => {
 
           <div className="flex items-center gap-8 text-3xl mt-8">
             <TbArrowBigLeftLines
-              className="cursor-pointer transition-all duration-300 hover:bg-slate-700 hover:rounded-full hover:p-2 hover:text-4xl"
+              className="cursor-pointer transition-all duration-300 hover:bg-cyan-400/10 hover:text-cyan-400 rounded-full p-2 hover:text-4xl"
               onClick={() => dec()}
             />
             <TbArrowBigRightLine
-              className="cursor-pointer transition-all duration-300 hover:bg-slate-700 hover:rounded-full hover:p-2 hover:text-4xl"
+              className="cursor-pointer transition-all duration-300 hover:bg-cyan-400/10 hover:text-cyan-400 rounded-full p-2 hover:text-4xl"
               onClick={() => inc()}
             />
           </div>
         </div>
 
-        <div className="col-start-6 col-span-7 max-lg:col-span-1 max-lg:col-start-1 row-span-full max-lg:-mt-[70rem] p-4 bg-slate-900 rounded-3xl shadow-md shadow-indigo-500/10">
-          <div className="relative">
+        <div className="col-start-6 col-span-7 max-lg:col-span-1 max-lg:col-start-1 row-span-full max-lg:-mt-[70rem] p-4 bg-gray-900 rounded-3xl shadow-[8px_8px_16px_rgba(0,0,0,0.5),-4px_-4px_12px_rgba(50,50,50,0.3)] border border-cyan-400/10">
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-fuchsia-500 rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
             <Image
               src={sliderData[idNumber].nftImage}
               alt="NFT IMAGE"
-              className="rounded-2xl w-full"
+              className="relative rounded-2xl w-full"
               width={800}
               height={800}
             />
 
-            <div className="absolute top-6 right-6 flex items-center gap-4 text-lg bg-slate-100 text-slate-800 py-2 px-4 rounded-full font-semibold">
-              <AiFillHeart className="text-red-500" />
+            <div className="absolute top-6 right-6 flex items-center gap-4 text-lg bg-gray-950 text-white py-2 px-4 rounded-full font-semibold border border-cyan-400/30 shadow-[0_0_15px_rgba(34,211,238,0.3)]">
+              <AiFillHeart className="text-fuchsia-500 drop-shadow-[0_0_8px_rgba(217,70,239,0.5)]" />
               <span>{sliderData[idNumber].like}</span>
             </div>
           </div>

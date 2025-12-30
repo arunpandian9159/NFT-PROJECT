@@ -41,7 +41,7 @@ const Service = () => {
         {services.map((service, i) => (
           <div
             key={i}
-            className="bg-slate-800 p-8 rounded-2xl border border-indigo-500/10 transition-all duration-300 shadow-md shadow-indigo-500/10 hover:-translate-y-1 hover:shadow-lg hover:shadow-indigo-500/20 hover:border-indigo-500"
+            className="bg-gray-900 p-8 rounded-2xl border border-cyan-400/10 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/40 shadow-[8px_8px_16px_rgba(0,0,0,0.5),-4px_-4px_12px_rgba(50,50,50,0.3)] hover:shadow-[0_0_20px_rgba(34,211,238,0.3)]"
           >
             <Image
               src={service.image}
@@ -51,14 +51,14 @@ const Service = () => {
               className="mx-auto"
             />
             <p className="my-8">
-              <span className="py-3 px-6 rounded-xl bg-gradient-to-r from-indigo-500 to-violet-500 text-white font-semibold text-sm">
+              <span className="py-3 px-6 rounded-xl bg-gradient-to-r from-cyan-400 via-blue-500 to-fuchsia-500 text-white font-semibold text-sm shadow-[0_4px_15px_rgba(34,211,238,0.3)]">
                 {service.step}
               </span>
             </p>
-            <h3 className="text-xl font-semibold mb-3 text-slate-100">
+            <h3 className="text-xl font-semibold mb-3 text-white">
               {service.title}
             </h3>
-            <p className="text-slate-400 leading-relaxed">
+            <p className="text-gray-400 leading-relaxed">
               {service.description}
             </p>
           </div>
