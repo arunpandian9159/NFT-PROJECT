@@ -7,7 +7,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 
 import images from "@/images";
-import Button from "../common/Button/Button";
+import Button from "../common/Button";
 import { DropZone } from "./uploadNFTIndex.js";
 
 const UploadNFT = ({ uploadToIPFS, createNFT, uploadToPinata }) => {

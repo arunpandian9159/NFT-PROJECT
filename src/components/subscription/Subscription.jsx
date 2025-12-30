@@ -1,7 +1,7 @@
 import React from "react";
 import { TiTick } from "react-icons/ti";
 
-import Button from "../common/Button/Button";
+import Button from "../common/Button";
 
 const Subscription = ({ el, i }) => {
   return (

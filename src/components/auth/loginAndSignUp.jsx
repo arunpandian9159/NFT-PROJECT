@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 
 import images from "@/images";
-import Button from "../common/Button/Button";
+import Button from "../common/Button";
 
 const LoginAndSignUp = () => {
   const [activeBtn, setActiveBtn] = useState(1);

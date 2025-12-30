@@ -8,8 +8,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 import { Discover, HelpCenter, Notification, Profile, SideBar } from "./index";
-import Button from "../../common/Button/Button";
-import Error from "../../common/Error/Error";
+import Button from "../../common/Button";
+import Error from "../../common/Error";
 import images from "@/images";
 
 import { NFTMarketplaceContext } from "../../../context/NFTMarketplaceContext";

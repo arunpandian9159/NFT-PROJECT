@@ -1,7 +1,7 @@
-import Discover from "./Discover/Discover";
-import HelpCenter from "./HelpCenter/HelpCenter";
-import Profile from "./Profile/Profile";
-import Notification from "./Notification/Notification";
-import SideBar from "./SideBar/SideBar";
+import Discover from "./Discover";
+import HelpCenter from "./HelpCenter";
+import Profile from "./Profile";
+import Notification from "./Notification";
+import SideBar from "./SideBar";
 
 export { Discover, HelpCenter, Profile, Notification, SideBar };
