@@ -7,7 +7,7 @@ import Button from "../common/Button";
 import images from "@/images";
 
 //SMART CONTRACT IMPORT
-import { NFTMarketplaceContext } from "../../../context/NFTMarketplaceContext";
+import { NFTMarketplaceContext } from "../../context/NFTMarketplaceContext";
 
 const HeroSection = () => {
   const { titleData } = useContext(NFTMarketplaceContext);

@@ -14,7 +14,7 @@ import {
 import { DiJqueryLogo } from "react-icons/di";
 
 import images from "@/images";
-import Button from "../../../common/Button/Button";
+import Button from "../../common/Button";
 
 const SideBar = ({ setOpenSideMenu, currentAccount, connectWallet }) => {
   const [openDiscover, setOpenDiscover] = useState(false);

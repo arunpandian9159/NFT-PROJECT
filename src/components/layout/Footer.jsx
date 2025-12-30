@@ -9,7 +9,7 @@ import {
 } from "react-icons/ti";
 import { RiSendPlaneFill } from "react-icons/ri";
 
-import { Discover, HelpCenter } from "../NavBar/index";
+import { Discover, HelpCenter } from "./NavBar/index";
 
 const Footer = () => {
   return (

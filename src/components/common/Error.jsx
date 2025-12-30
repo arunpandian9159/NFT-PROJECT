@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import Image from "next/image";
 
 import images from "@/images";
-import { NFTMarketplaceContext } from "../../../context/NFTMarketplaceContext";
+import { NFTMarketplaceContext } from "../../context/NFTMarketplaceContext";
 
 const Error = () => {
   const { error, setOpenError } = useContext(NFTMarketplaceContext);
