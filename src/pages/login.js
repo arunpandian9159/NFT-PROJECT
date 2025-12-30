@@ -1,21 +1,27 @@
 import React from "react";
 
-//INTERNAL IMPORT
-import Style from "../styles/login.module.css";
 import LoginAndSignUp from "../components/auth/loginAndSignUp";
 
-const login = () => {
+const Login = () => {
   return (
-    <div className={Style.login}>
-      <div className={Style.login_box}>
-        <h1>Login</h1>
+    <div className="min-h-screen py-20">
+      <div className="w-[90%] max-w-md mx-auto">
+        <h1 className="text-5xl max-md:text-3xl font-bold mb-8 text-center gradient-text">
+          Login
+        </h1>
         <LoginAndSignUp />
-        <p className={Style.login_box_para}>
-          New user? <a href="#">Create an account</a>
+        <p className="text-center mt-8 text-slate-400">
+          New user?{" "}
+          <a
+            href="/signUp"
+            className="text-indigo-400 hover:text-indigo-300 font-semibold"
+          >
+            Create an account
+          </a>
         </p>
       </div>
     </div>
   );
 };
 
-export default login;
+export default Login;

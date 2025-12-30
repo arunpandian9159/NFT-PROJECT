@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 
 // Internal Import
-import Style from "@/styles/index.module.css";
 import {
   HeroSection,
   Service,
@@ -44,7 +43,7 @@ const Home = () => {
   const creators = getTopCreators(nfts || []);
 
   return (
-    <div className={Style.homePage}>
+    <div className="min-h-screen">
       <HeroSection />
       <Service />
       <BigNFTSlider />

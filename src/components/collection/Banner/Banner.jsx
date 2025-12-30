@@ -1,29 +1,28 @@
 import React from "react";
 import Image from "next/image";
 
-//INTERNAL IMPORT
-import Style from "./Banner.module.css";
-
 const Banner = ({ bannerImage }) => {
   return (
-    <div className={Style.banner}>
-      <div className={Style.banner_img}>
+    <div>
+      <div className="hidden md:block">
         <Image
           src={bannerImage}
-          objectFit="cover"
+          style={{ objectFit: "cover" }}
           alt="background"
           width={1600}
           height={100}
+          className="w-full"
         />
       </div>
 
-      <div className={Style.banner_img_mobile}>
+      <div className="block md:hidden">
         <Image
           src={bannerImage}
-          objectFit="cover"
+          style={{ objectFit: "cover" }}
           alt="background"
           width={1600}
           height={300}
+          className="w-full"
         />
       </div>
     </div>

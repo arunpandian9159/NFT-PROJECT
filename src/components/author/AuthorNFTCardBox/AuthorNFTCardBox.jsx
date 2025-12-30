@@ -1,11 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
-//INTERNAL IMPORT
-import Style from "./AuthorNFTCardBox.module.css";
 import images from "@/images";
 import { NFTCardTwo } from "../../collection/collectionIndex";
 import FollowerTabCard from "../../nft/FollowerTab/FollowerTabCard/FollowerTabCard";
-import { Loader } from "../../common/Loader/Loader";
 
 const AuthorNFTCardBox = ({
   collectiables,
@@ -16,32 +13,6 @@ const AuthorNFTCardBox = ({
   nfts,
   myNFTS,
 }) => {
-  // const collectiablesArray = [
-  //   images.nft_image_1,
-  //   images.nft_image_2,
-  //   images.nft_image_3,
-  //   images.nft_image_1,
-  //   images.nft_image_2,
-  //   images.nft_image_3,
-  //   images.nft_image_1,
-  //   images.nft_image_2,
-  // ];
-
-  // const createdArray = [
-  //   images.nft_image_1,
-  //   images.nft_image_2,
-  //   images.nft_image_3,
-  //   images.nft_image_1,
-  // ];
-
-  // const likeArray = [
-  //   images.nft_image_1,
-  //   images.nft_image_2,
-  //   images.nft_image_3,
-  //   images.nft_image_1,
-  //   images.nft_image_2,
-  // ];
-
   const followerArray = [
     {
       background: images.creatorbackground1,
@@ -104,21 +75,21 @@ const AuthorNFTCardBox = ({
   ];
 
   return (
-    <div className={Style.AuthorNFTCardBox}>
+    <div className="w-[80%] max-md:w-[90%] mx-auto mt-20">
       {collectiables && <NFTCardTwo NFTData={nfts} />}
       {created && <NFTCardTwo NFTData={myNFTS} />}
       {like && <NFTCardTwo NFTData={nfts} />}
       {follower && (
-        <div className={Style.AuthorNFTCardBox_box}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {followerArray.map((el, i) => (
-            <FollowerTabCard i={i} el={el} />
+            <FollowerTabCard key={i} i={i} el={el} />
           ))}
         </div>
       )}
       {following && (
-        <div className={Style.AuthorNFTCardBox_box}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {followingArray.map((el, i) => (
-            <FollowerTabCard i={i} el={el} />
+            <FollowerTabCard key={i} i={i} el={el} />
           ))}
         </div>
       )}

@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 
 // Internal Import
-import Style from "@/styles/author.module.css";
-import { Banner, NFTCardTwo } from "@/components/collection/collectionIndex";
+import { Banner } from "@/components/collection/collectionIndex";
 import { Brand, Title } from "@/components";
 import FollowerTabCard from "@/components/nft/FollowerTab/FollowerTabCard/FollowerTabCard";
 import images from "@/images";
@@ -75,7 +74,7 @@ const Author = () => {
   }, []);
 
   return (
-    <div className={Style.author}>
+    <div className="min-h-screen">
       <Banner bannerImage={images.creatorbackground2} />
       <AuthorProfileCard currentAccount={currentAccount} />
       <AuthorTaps
@@ -100,7 +99,7 @@ const Author = () => {
         heading="Popular Creators"
         paragraph="Click on music icon and enjoy NTF music or audio"
       />
-      <div className={Style.author_box}>
+      <div className="w-[80%] max-md:w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 my-16">
         {followerArray.map((el, i) => (
           <FollowerTabCard key={i} i={i} el={el} />
         ))}

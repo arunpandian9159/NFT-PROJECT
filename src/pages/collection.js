@@ -1,7 +1,6 @@
 import React from "react";
 
 // Internal Import
-import Style from "@/styles/collection.module.css";
 import images from "@/images";
 import {
   Banner,
@@ -23,11 +22,13 @@ const Collection = () => {
   ];
 
   return (
-    <div className={Style.collection}>
+    <div className="min-h-screen">
       <Banner bannerImage={images.creatorbackground1} />
       <CollectionProfile />
       <Filter />
-      <NFTCardTwo NFTData={collectionArray} />
+      <div className="w-[80%] max-md:w-[90%] mx-auto my-16">
+        <NFTCardTwo NFTData={collectionArray} />
+      </div>
       <Slider />
       <Brand />
     </div>

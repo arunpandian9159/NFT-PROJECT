@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 
 // Internal Import
-import Style from "@/styles/searchPage.module.css";
 import { Slider, Brand, Loader, Filter } from "@/components";
 import { SearchBar } from "@/components/search/searchBarIndex";
 import { NFTCardTwo, Banner } from "@/components/collection/collectionIndex";
@@ -49,14 +48,16 @@ const SearchPage = () => {
   };
 
   return (
-    <div className={Style.searchPage}>
+    <div className="min-h-screen">
       <Banner bannerImage={images.creatorbackground2} />
       <SearchBar
         onHandleSearch={onHandleSearch}
         onClearSearch={onClearSearch}
       />
       <Filter />
-      {nfts?.length === 0 ? <Loader /> : <NFTCardTwo NFTData={nfts} />}
+      <div className="w-[80%] max-md:w-[90%] mx-auto my-16">
+        {nfts?.length === 0 ? <Loader /> : <NFTCardTwo NFTData={nfts} />}
+      </div>
       <Slider />
       <Brand />
     </div>

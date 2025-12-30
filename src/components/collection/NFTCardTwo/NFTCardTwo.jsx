@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import Image from "next/image";
 import { BsImage } from "react-icons/bs";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
-import { MdVerified, MdTimer } from "react-icons/md";
+import { MdTimer } from "react-icons/md";
 import Link from "next/link";
 
-//INTERNAL IMPORT
-import Style from "./NFTCardTwo.module.css";
 import LikeProfile from "../../common/LikeProfile/LikeProfile";
 
 const NFTCardTwo = ({ NFTData }) => {
@@ -19,55 +16,62 @@ const NFTCardTwo = ({ NFTData }) => {
       setLikeInc(23);
     } else {
       setLike(false);
-      setLikeInc(23 + 1);
+      setLikeInc(24);
     }
   };
 
-  // console.log(NFTData);
-
   return (
-    <div className={Style.NFTCardTwo}>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
       {NFTData?.map((el, i) => (
         <Link href={{ pathname: "/NFT-details", query: el }} key={i + 1}>
-          <div className={Style.NFTCardTwo_box} key={i + 1}>
-            <div className={Style.NFTCardTwo_box_like}>
-              <div className={Style.NFTCardTwo_box_like_box}>
-                <div className={Style.NFTCardTwo_box_like_box_box}>
-                  <BsImage className={Style.NFTCardTwo_box_like_box_box_icon} />
-                  <p onClick={() => likeNFT()}>
-                    {like ? <AiOutlineHeart /> : <AiFillHeart />}
-                    {""}
-                    <span>{likeInc + 1}</span>
-                  </p>
-                </div>
+          <div className="bg-slate-800 rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer hover:shadow-lg hover:shadow-indigo-500/20 hover:-translate-y-1 group">
+            <div className="relative">
+              <div className="absolute top-4 left-4 right-4 z-10 flex items-center justify-between">
+                <BsImage className="text-slate-100 text-2xl" />
+                <p
+                  onClick={(e) => {
+                    e.preventDefault();
+                    likeNFT();
+                  }}
+                  className="flex items-center gap-2 bg-slate-100 text-slate-900 py-1 px-3 rounded-full cursor-pointer"
+                >
+                  {like ? (
+                    <AiOutlineHeart />
+                  ) : (
+                    <AiFillHeart className="text-red-500" />
+                  )}
+                  <span>{likeInc + 1}</span>
+                </p>
               </div>
-            </div>
 
-            <div className={Style.NFTCardTwo_box_img}>
               <img
                 src={el.image}
                 alt="NFT"
-                className={Style.NFTCardTwo_box_img_img}
-                objectFit="cover"
+                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
 
-            <div className={Style.NFTCardTwo_box_info}>
-              <div className={Style.NFTCardTwo_box_info_left}>
-                <LikeProfile />
-                <p>{el.name}</p>
+            <div className="p-4">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-2">
+                  <LikeProfile />
+                  <p className="font-semibold">{el.name}</p>
+                </div>
+                <small className="text-slate-400">4{i + 2}</small>
               </div>
-              <small>4{i + 2}</small>
-            </div>
 
-            <div className={Style.NFTCardTwo_box_price}>
-              <div className={Style.NFTCardTwo_box_price_box}>
-                <small>Current Bid</small>
-                <p>{el.price || i + 4} ETH</p>
+              <div className="flex items-center justify-between border-t border-slate-700 pt-4">
+                <div>
+                  <small className="text-slate-400">Current Bid</small>
+                  <p className="font-bold gradient-text">
+                    {el.price || i + 4} ETH
+                  </p>
+                </div>
+                <p className="flex items-center gap-2 text-slate-400">
+                  <MdTimer className="text-indigo-400" />{" "}
+                  <span>{i + 1} hours left</span>
+                </p>
               </div>
-              <p className={Style.NFTCardTwo_box_price_stock}>
-                <MdTimer /> <span>{i + 1} hours left</span>
-              </p>
             </div>
           </div>
         </Link>

@@ -1,9 +1,8 @@
 import React from "react";
 
-//INTERNAL IMPORT
-import Style from "../styles/subscription.module.css";
 import Subscription from "../components/subscription/Subscription";
-const subscription = () => {
+
+const SubscriptionPage = () => {
   const subscriptionArray = [
     {
       plan: "STARTER",
@@ -22,7 +21,6 @@ const subscription = () => {
         "Progress Reports",
         "Premium Support",
       ],
-
       info: "Literally you probably haven't heard of them jean shorts.",
     },
     {
@@ -35,21 +33,25 @@ const subscription = () => {
         "Advanced Analytics",
         "Company Evaluations",
       ],
-
       info: "Literally you probably haven't heard of them jean shorts.",
     },
   ];
+
   return (
-    <div className={Style.Subscription}>
-      <div className={Style.Subscription_box}>
-        <div className={Style.Subscription_box_info}>
-          <h1>💎 Subscription</h1>
-          <p>Pricing to fit the needs of any companie size.</p>
+    <div className="min-h-screen py-20">
+      <div className="w-[80%] max-md:w-[90%] mx-auto">
+        <div className="text-center mb-16">
+          <h1 className="text-5xl max-md:text-3xl font-bold mb-6 gradient-text">
+            💎 Subscription
+          </h1>
+          <p className="text-slate-400 text-lg">
+            Pricing to fit the needs of any company size.
+          </p>
         </div>
 
-        <div className={Style.Subscription_box_box}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {subscriptionArray.map((el, i) => (
-            <Subscription key={i + 1} i={1} el={el} />
+            <Subscription key={i + 1} i={i} el={el} />
           ))}
         </div>
       </div>
@@ -57,4 +59,4 @@ const subscription = () => {
   );
 };
 
-export default subscription;
+export default SubscriptionPage;

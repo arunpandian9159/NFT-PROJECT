@@ -7,107 +7,164 @@ import {
   TiSocialInstagram,
 } from "react-icons/ti";
 
-//INTERNAL IMPORT
-import Style from "./Form.module.css";
 import Button from "../../common/Button/Button";
 
 const Form = () => {
   return (
-    <div className={Style.Form}>
-      <div className={Style.Form_box}>
+    <div className="w-full">
+      <div>
         <form>
-          <div className={Style.Form_box_input}>
-            <label htmlFor="name">Username</label>
+          <div className="mt-8">
+            <label
+              htmlFor="name"
+              className="block w-full ml-4 font-bold text-xl"
+            >
+              Username
+            </label>
             <input
               type="text"
-              placeholder="shoaib bhai"
-              className={Style.Form_box_input_userName}
+              placeholder="Username"
+              className="w-full border border-slate-700 py-4 px-6 rounded-2xl bg-slate-800 mt-2 outline-none text-slate-100 focus:border-indigo-500 transition-colors"
             />
           </div>
 
-          <div className={Style.Form_box_input}>
-            <label htmlFor="email">Email</label>
-            <div className={Style.Form_box_input_box}>
-              <div className={Style.Form_box_input_box_icon}>
+          <div className="mt-8">
+            <label
+              htmlFor="email"
+              className="block w-full ml-4 font-bold text-xl"
+            >
+              Email
+            </label>
+            <div className="w-full border border-slate-700 rounded-2xl flex items-center gap-4 overflow-hidden focus-within:border-indigo-500 transition-colors">
+              <div className="text-3xl bg-gradient-to-r from-indigo-500 to-violet-500 py-3 px-4 text-white grid cursor-pointer">
                 <HiOutlineMail />
               </div>
-              <input type="text" placeholder="Email*" />
+              <input
+                type="text"
+                placeholder="Email*"
+                className="w-[90%] border-0 bg-transparent outline-none text-slate-100"
+              />
             </div>
           </div>
 
-          <div className={Style.Form_box_input}>
-            <label htmlFor="description">Description</label>
+          <div className="mt-8">
+            <label
+              htmlFor="description"
+              className="block w-full ml-4 font-bold text-xl"
+            >
+              Description
+            </label>
             <textarea
-              name=""
-              id=""
               cols="30"
               rows="6"
-              placeholder="something about yourself in few words"
+              placeholder="Something about yourself in few words"
+              className="w-full bg-slate-800 outline-none rounded-2xl p-4 border border-slate-700 text-slate-100 focus:border-indigo-500 transition-colors mt-2 resize-y"
             ></textarea>
           </div>
 
-          <div className={Style.Form_box_input}>
-            <label htmlFor="website">Website</label>
-            <div className={Style.Form_box_input_box}>
-              <div className={Style.Form_box_input_box_icon}>
+          <div className="mt-8">
+            <label
+              htmlFor="website"
+              className="block w-full ml-4 font-bold text-xl"
+            >
+              Website
+            </label>
+            <div className="w-full border border-slate-700 rounded-2xl flex items-center gap-4 overflow-hidden focus-within:border-indigo-500 transition-colors">
+              <div className="text-3xl bg-gradient-to-r from-indigo-500 to-violet-500 py-3 px-4 text-white grid cursor-pointer">
                 <MdOutlineHttp />
               </div>
-
-              <input type="text" placeholder="website" />
+              <input
+                type="text"
+                placeholder="https://website.com"
+                className="w-[90%] border-0 bg-transparent outline-none text-slate-100"
+              />
             </div>
           </div>
 
-          <div className={Style.Form_box_input_social}>
-            <div className={Style.Form_box_input}>
-              <label htmlFor="facebook">Facebook</label>
-              <div className={Style.Form_box_input_box}>
-                <div className={Style.Form_box_input_box_icon}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+            <div>
+              <label
+                htmlFor="facebook"
+                className="block w-full ml-4 font-bold text-xl"
+              >
+                Facebook
+              </label>
+              <div className="w-full border border-slate-700 rounded-2xl flex items-center gap-4 overflow-hidden focus-within:border-indigo-500 transition-colors">
+                <div className="text-3xl bg-gradient-to-r from-indigo-500 to-violet-500 py-3 px-4 text-white grid cursor-pointer">
                   <TiSocialFacebook />
                 </div>
-                <input type="text" placeholder="http://shoaib" />
+                <input
+                  type="text"
+                  placeholder="facebook.com/username"
+                  className="w-[90%] border-0 bg-transparent outline-none text-slate-100"
+                />
               </div>
             </div>
-            <div className={Style.Form_box_input}>
-              <label htmlFor="Twitter">Twitter</label>
-              <div className={Style.Form_box_input_box}>
-                <div className={Style.Form_box_input_box_icon}>
+            <div>
+              <label
+                htmlFor="Twitter"
+                className="block w-full ml-4 font-bold text-xl"
+              >
+                Twitter
+              </label>
+              <div className="w-full border border-slate-700 rounded-2xl flex items-center gap-4 overflow-hidden focus-within:border-indigo-500 transition-colors">
+                <div className="text-3xl bg-gradient-to-r from-indigo-500 to-violet-500 py-3 px-4 text-white grid cursor-pointer">
                   <TiSocialTwitter />
                 </div>
-                <input type="text" placeholder="http://shoaib" />
+                <input
+                  type="text"
+                  placeholder="twitter.com/username"
+                  className="w-[90%] border-0 bg-transparent outline-none text-slate-100"
+                />
               </div>
             </div>
-            <div className={Style.Form_box_input}>
-              <label htmlFor="Instragram">Instragram</label>
-              <div className={Style.Form_box_input_box}>
-                <div className={Style.Form_box_input_box_icon}>
+            <div>
+              <label
+                htmlFor="Instagram"
+                className="block w-full ml-4 font-bold text-xl"
+              >
+                Instagram
+              </label>
+              <div className="w-full border border-slate-700 rounded-2xl flex items-center gap-4 overflow-hidden focus-within:border-indigo-500 transition-colors">
+                <div className="text-3xl bg-gradient-to-r from-indigo-500 to-violet-500 py-3 px-4 text-white grid cursor-pointer">
                   <TiSocialInstagram />
                 </div>
-                <input type="text" placeholder="http://shoaib" />
+                <input
+                  type="text"
+                  placeholder="instagram.com/username"
+                  className="w-[90%] border-0 bg-transparent outline-none text-slate-100"
+                />
               </div>
             </div>
           </div>
 
-          <div className={Style.Form_box_input}>
-            <label htmlFor="wallet">Wallet address</label>
-            <div className={Style.Form_box_input_box}>
-              <div className={Style.Form_box_input_box_icon}>
+          <div className="mt-8">
+            <label
+              htmlFor="wallet"
+              className="block w-full ml-4 font-bold text-xl"
+            >
+              Wallet address
+            </label>
+            <div className="w-full border border-slate-700 rounded-2xl flex items-center gap-4 overflow-hidden focus-within:border-indigo-500 transition-colors">
+              <div className="text-3xl bg-gradient-to-r from-indigo-500 to-violet-500 py-3 px-4 text-white grid cursor-pointer">
                 <MdOutlineHttp />
               </div>
               <input
                 type="text"
                 placeholder="0xEA674fdDe714fd979de3EdF0F56AA9716B898ec8"
+                className="flex-1 border-0 bg-transparent outline-none text-slate-100"
               />
-              <div className={Style.Form_box_input_box_icon}>
+              <div className="text-3xl bg-gradient-to-r from-indigo-500 to-violet-500 py-3 px-4 text-white grid cursor-pointer hover:opacity-80 transition-opacity">
                 <MdOutlineContentCopy />
               </div>
             </div>
           </div>
 
-          <div className={Style.Form_box_btn}>
+          <div className="my-16">
             <Button
               btnName="Upload profile"
               handleClick={() => {}}
-              classStyle={Style.button}
+              classStyle="w-full flex justify-center text-xl"
             />
           </div>
         </form>

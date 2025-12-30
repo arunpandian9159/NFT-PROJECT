@@ -1,9 +1,5 @@
 import React, { useState } from "react";
-import Image from "next/image";
 import { TiArrowSortedDown, TiArrowSortedUp, TiTick } from "react-icons/ti";
-
-//INTERNAL IMPORT
-import Style from "./AuthorTaps.module.css";
 
 const AuthorTaps = ({
   setCollectiables,
@@ -24,17 +20,8 @@ const AuthorTaps = ({
     "Most Viewed",
   ];
 
-  const openDropDownList = () => {
-    if (!openList) {
-      setOpenList(true);
-    } else {
-      setOpenList(false);
-    }
-  };
-
   const openTab = (e) => {
     const btnText = e.target.innerText;
-    console.log(btnText);
     if (btnText == "Listed NFTs") {
       setCollectiables(true);
       setCreated(false);
@@ -74,62 +61,85 @@ const AuthorTaps = ({
   };
 
   return (
-    <div className={Style.AuthorTaps}>
-      <div className={Style.AuthorTaps_box}>
-        <div className={Style.AuthorTaps_box_left}>
-          <div className={Style.AuthorTaps_box_left_btn}>
-            <button
-              className={`${activeBtn == 1 ? Style.active : ""}`}
-              onClick={(e) => openTab(e)}
-            >
-              Listed NFTs
-            </button>
-            <button
-              className={`${activeBtn == 2 ? Style.active : ""}`}
-              onClick={(e) => openTab(e)}
-            >
-              Own NFT
-            </button>
-            <button
-              className={`${activeBtn == 3 ? Style.active : ""}`}
-              onClick={(e) => openTab(e)}
-            >
-              Liked
-            </button>
-            <button
-              className={`${activeBtn == 4 ? Style.active : ""}`}
-              onClick={(e) => openTab(e)}
-            >
-              Following
-            </button>
-            <button
-              className={`${activeBtn == 5 ? Style.active : ""}`}
-              onClick={(e) => openTab(e)}
-            >
-              Followers
-            </button>
-          </div>
+    <div className="w-[80%] max-md:w-[90%] mx-auto mt-20">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+        <div className="flex flex-wrap gap-4">
+          <button
+            className={`py-4 px-6 max-md:py-2 max-md:px-4 rounded-full border-none cursor-pointer font-semibold transition-all duration-300 ${
+              activeBtn == 1
+                ? "bg-gradient-to-r from-indigo-500 to-violet-500 text-white"
+                : "bg-slate-700 text-slate-100 hover:bg-slate-600"
+            }`}
+            onClick={(e) => openTab(e)}
+          >
+            Listed NFTs
+          </button>
+          <button
+            className={`py-4 px-6 max-md:py-2 max-md:px-4 rounded-full border-none cursor-pointer font-semibold transition-all duration-300 ${
+              activeBtn == 2
+                ? "bg-gradient-to-r from-indigo-500 to-violet-500 text-white"
+                : "bg-slate-700 text-slate-100 hover:bg-slate-600"
+            }`}
+            onClick={(e) => openTab(e)}
+          >
+            Own NFT
+          </button>
+          <button
+            className={`py-4 px-6 max-md:py-2 max-md:px-4 rounded-full border-none cursor-pointer font-semibold transition-all duration-300 ${
+              activeBtn == 3
+                ? "bg-gradient-to-r from-indigo-500 to-violet-500 text-white"
+                : "bg-slate-700 text-slate-100 hover:bg-slate-600"
+            }`}
+            onClick={(e) => openTab(e)}
+          >
+            Liked
+          </button>
+          <button
+            className={`py-4 px-6 max-md:py-2 max-md:px-4 rounded-full border-none cursor-pointer font-semibold transition-all duration-300 ${
+              activeBtn == 4
+                ? "bg-gradient-to-r from-indigo-500 to-violet-500 text-white"
+                : "bg-slate-700 text-slate-100 hover:bg-slate-600"
+            }`}
+            onClick={(e) => openTab(e)}
+          >
+            Following
+          </button>
+          <button
+            className={`py-4 px-6 max-md:py-2 max-md:px-4 rounded-full border-none cursor-pointer font-semibold transition-all duration-300 ${
+              activeBtn == 5
+                ? "bg-gradient-to-r from-indigo-500 to-violet-500 text-white"
+                : "bg-slate-700 text-slate-100 hover:bg-slate-600"
+            }`}
+            onClick={(e) => openTab(e)}
+          >
+            Followers
+          </button>
         </div>
 
-        <div className={Style.AuthorTaps_box_right}>
+        <div className="relative">
           <div
-            className={Style.AuthorTaps_box_right_para}
-            onClick={() => openDropDownList()}
+            className="flex items-center gap-4 py-4 px-6 bg-slate-800 rounded-full cursor-pointer hover:bg-slate-700 transition-colors border border-slate-700"
+            onClick={() => setOpenList(!openList)}
           >
             <p>{selectedMenu}</p>
             {openList ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
           </div>
 
           {openList && (
-            <div className={Style.AuthorTaps_box_right_list}>
+            <div className="absolute right-0 top-16 w-56 bg-slate-900 shadow-lg shadow-indigo-500/20 rounded-2xl p-4 z-50 animate-fade-in">
               {listArray.map((el, i) => (
                 <div
                   key={i + 1}
-                  onClick={() => setSelectedMenu(el)}
-                  className={Style.AuthorTaps_box_right_list_item}
+                  onClick={() => {
+                    setSelectedMenu(el);
+                    setOpenList(false);
+                  }}
+                  className="flex items-center justify-between py-3 px-4 cursor-pointer transition-all rounded-lg hover:bg-slate-100 hover:text-slate-900"
                 >
                   <p>{el}</p>
-                  <span>{selectedMenu == el && <TiTick />}</span>
+                  <span className="text-green-400">
+                    {selectedMenu == el && <TiTick />}
+                  </span>
                 </div>
               ))}
             </div>
